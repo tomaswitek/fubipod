@@ -23,7 +23,7 @@ const navigation = {
   social: [
     {
       name: "Facebook",
-      href: "#",
+      href: "https://www.facebook.com/FUBIpod",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -36,7 +36,7 @@ const navigation = {
     },
     {
       name: "Instagram",
-      href: "#",
+      href: "https://www.instagram.com/fubi_pod/",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -48,27 +48,50 @@ const navigation = {
       ),
     },
     {
-      name: "X",
-      href: "#",
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/fubipod/about/",
       icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
-        </svg>
-      ),
-    },
-    {
-      name: "YouTube",
-      href: "#",
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+        <svg
+          fill="currentColor"
+          height="24px"
+          width="24px"
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="-143 145 512 512"
+        >
           <path
-            fillRule="evenodd"
-            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-            clipRule="evenodd"
+            d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z
+	 M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7
+	c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4
+	c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6
+	c35.5,0,63.3,23,63.3,72.4V508.1z"
           />
         </svg>
       ),
     },
+    // {
+    //   name: "X",
+    //   href: "#",
+    //   icon: (props) => (
+    //     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //       <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
+    //     </svg>
+    //   ),
+    // },
+    // {
+    //   name: "YouTube",
+    //   href: "#",
+    //   icon: (props) => (
+    //     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //       <path
+    //         fillRule="evenodd"
+    //         d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+    //         clipRule="evenodd"
+    //       />
+    //     </svg>
+    //   ),
+    // },
   ],
 };
 
@@ -191,6 +214,7 @@ export function Footer() {
               <a
                 key={item.name}
                 href={item.href}
+                target="_blank"
                 className="text-gray-500 hover:text-gray-400"
               >
                 <span className="sr-only">{item.name}</span>
