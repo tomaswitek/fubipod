@@ -1,0 +1,34 @@
+{
+  "name": "directus",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Directus admin",
+  "dependencies": {
+    "directus": "^10.7.2",
+    "pg": "^8.11.3",
+    "directus-extension-endpoint-example": "workspace:*",
+    "directus-extension-interface-example": "workspace:*",
+    "directus-extension-operation-example": "workspace:*"
+  },
+  "devDependencies": {
+    "create-directus-extension": "^10.0.15"
+  },
+  "scripts": {
+    "start": "directus start",
+    "start:railway": "directus start",
+    "init-config": "cp -n example.env .env || true",
+    "dev": "NODE_OPTIONS='--inspect' NODE_TLS_REJECT_UNAUTHORIZED='0' directus start",
+    "build": "directus bootstrap && directus database migrate:latest",
+    "build:local": "pnpm init-config && pnpm build",
+    "build:railway": "pnpm build",
+    "db:apply": "directus schema apply --yes ./schema.yml",
+    "extension": "create-directus-extension",
+    "db:snapshot": "directus schema snapshot ./schema.yml",
+    "bootstrap": "directus bootstrap"
+  },
+  "packageManager": "pnpm@8.10.2",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": "~8.10.2"
+  }
+}

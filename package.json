@@ -1,0 +1,26 @@
+{
+  "name": "directus-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build:railway",
+    "build:railway": "turbo run build:railway",
+    "build:local": "turbo run build:local",
+    "start": "turbo run start:railway --concurrency 11",
+    "start:railway": "turbo run start:railway --concurrency 11",
+    "start:local": "turbo run start:local",
+    "dev": "turbo run dev --concurrency 11",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "tsconfig": "workspace:*",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.10.2",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": "~8.10.2"
+  }
+}
