@@ -10,7 +10,7 @@ const navigation = [
   {name: "FUBI HOUSE", href: "#"},
   {name: "FUBI SHOP", href: "#"},
   {name: "FUBI APP", href: "#"},
-  {name: "Spoluprace", href: "#"},
+  {name: "Spolupráce", href: "#"},
   {name: "Reference", href: "#"},
 ];
 
