@@ -14,10 +14,14 @@ const navigation = {
     {name: "FUBI SHOP S", href: "#"},
     {name: "FUBI SHOP L", href: "#"},
   ],
-  legal: [
-    {name: "FUBI APP", href: "#"},
-    {name: "Spolupráce", href: "#"},
+  app: [
+    {name: "Scan N' GO", href: "#"},
+    {name: "Coworking", href: "#"},
+  ],
+  main: [
+    {name: "Tým", href: "#"},
     {name: "Reference", href: "#"},
+    {name: "Katalog", href: "#"},
     {name: "Kontakt", href: "#"},
   ],
   social: [
@@ -160,10 +164,10 @@ export function Footer() {
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-white">
-                  FUBI
+                  FUBI APP
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
+                  {navigation.app.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -200,7 +204,7 @@ export function Footer() {
               <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center rounded-md bg-blue-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  className="flex w-full items-center justify-center rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                 >
                   Odebírat
                 </button>
@@ -209,23 +213,39 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
-          <div className="flex space-x-6 md:order-2">
-            {navigation.social.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                className="text-gray-500 hover:text-gray-400"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
-            ))}
+          <div className="mx-auto max-w-7xl overflow-hidden px-6 pb-20 sm:pb-24 lg:px-8">
+            <nav
+              className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
+              aria-label="Footer"
+            >
+              {navigation.main.map((item) => (
+                <div key={item.name} className="pb-6">
+                  <a
+                    href={item.href}
+                    className="text-sm leading-6 text-gray-300 hover:text-white"
+                  >
+                    {item.name}
+                  </a>
+                </div>
+              ))}
+            </nav>
+            <div className="mt-10 flex justify-center space-x-10">
+              {navigation.social.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-white"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <p className="mt-10 text-center text-xs leading-5 text-gray-500">
+              &copy; {new Date().getFullYear()} FUBI SOLUTIONS s.r.o. All rights
+              reserved.
+            </p>
           </div>
-          <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
-            &copy; {new Date().getFullYear()} FUBI SOLUTIONS s.r.o. All rights
-            reserved.
-          </p>
         </div>
       </div>
     </footer>
