@@ -15,24 +15,24 @@ export function Navigation(props: Props) {
 
   return (
     <>
-      <div className="hidden lg:flex lg:gap-x-12">
+      <div className="hidden lg:flex lg:gap-x-12 border-b-2 box-content">
         {items.map((item) => (
           <a
             key={item.name}
             href={item.href}
-            className="text-sm font-semibold leading-6 text-white"
+            className="font-semibold leading-6 border-b-2 border-transparent text-black hover:border-black"
           >
             {item.name}
           </a>
         ))}
       </div>
-      <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+      <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
         <a
           href="#"
-          className="flex text-sm font-semibold leading-6 text-white justify-between"
+          className="flex font-semibold leading-6 justify-between text-black hover:underline"
         >
-          <span>Kontakt</span>
-          <EnvelopeIcon height={24} className="ml-2" />
+          <EnvelopeIcon height={24} className="mr-2" />
+          <span>KONTAKT</span>
         </a>
       </div>
     </>

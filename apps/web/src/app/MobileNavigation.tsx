@@ -17,7 +17,7 @@ export function MobileNavigation(props: Props) {
     <div className="flex lg:hidden">
       <button
         type="button"
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
+        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black"
         onClick={() => setMobileMenuOpen(true)}
       >
         <span className="sr-only">Open main menu</span>
