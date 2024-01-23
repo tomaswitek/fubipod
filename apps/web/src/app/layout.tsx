@@ -23,7 +23,7 @@ export default function RootLayout({
         <div
           style={{
             background:
-              'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg")',
+              'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg") no-repeat',
           }}
         >
           <Header />
