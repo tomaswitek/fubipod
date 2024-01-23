@@ -5,7 +5,7 @@ interface Props {}
 const categories = [
   {
     title: "FUBI POD",
-    subtitle: "Potřebujete prostor pro práci, rleax a život?",
+    subtitle: "Potřebujete prostor pro práci, relax a život?",
     description:
       "FUBI POD je pro Vás to pravé, pokud potřebujete rychle prostor navíc. Stavba se obejde bez stavebního povolení.",
     imageUrl: "https://fubipod.com/img/modely/02_10_2023_3131.jpg",
