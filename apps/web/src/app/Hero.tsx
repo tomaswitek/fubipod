@@ -45,7 +45,7 @@ export function Hero(props: Props) {
         {categories.map((category) => (
           <li
             key={category.title}
-            className="rounded-2xl bg-black px-8 py-10 border-2 border-gray-800 md:px-14 opacity-85 hover:border-white hover:opacity-100 cursor-pointer"
+            className="rounded-2xl bg-black px-8 py-10 border-2 border-gray-800 md:px-14 bg-opacity-85 hover:border-white hover:bg-opacity-100 cursor-pointer"
           >
             <img
               className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56 object-cover"
