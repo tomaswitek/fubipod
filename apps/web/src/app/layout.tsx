@@ -29,12 +29,6 @@ export default function RootLayout({
         >
           <Header />
           {children}
-          <div
-            style={{
-              background:
-                "linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));",
-            }}
-          />
         </div>
         <Footer />
       </body>
