@@ -24,7 +24,7 @@ const navigation = {
     {
       name: "Facebook",
       href: "https://www.facebook.com/FUBIpod",
-      icon: (props) => (
+      icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -37,7 +37,7 @@ const navigation = {
     {
       name: "Instagram",
       href: "https://www.instagram.com/fubi_pod/",
-      icon: (props) => (
+      icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -50,7 +50,7 @@ const navigation = {
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/fubipod/about/",
-      icon: (props) => (
+      icon: (props: any) => (
         <svg
           fill="currentColor"
           height="24px"
