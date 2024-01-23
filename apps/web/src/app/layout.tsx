@@ -3,7 +3,6 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import {Header} from "./Header";
 import {Footer} from "./Footer";
-import {BackspaceIcon} from "@heroicons/react/24/outline";
 
 const inter = Inter({subsets: ["latin"]});
 
