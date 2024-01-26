@@ -6,7 +6,7 @@ import {
   authentication,
   RestCommand,
 } from "@directus/sdk";
-import {Schema, Product, Status} from "types";
+import {Schema, Status} from "types";
 
 const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
   .with(rest())
@@ -15,9 +15,13 @@ const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
 export const client = {
   ...directusClient,
 
-  getProducts: async () => {
+  getCategories: async () => {
     return await directusClient.request(
-      readItems("products", {filter: {status: {_eq: Status.Published}}})
+      readItems("categories", {
+        filter: {status: {_eq: Status.Published}},
+        // fields: ["*", {translations: ["*"]}],
+        fields: ["*", "translations.*"],
+      })
     );
   },
 

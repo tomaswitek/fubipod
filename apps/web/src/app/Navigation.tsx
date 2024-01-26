@@ -1,28 +1,22 @@
 import React from "react";
 import {EnvelopeIcon} from "@heroicons/react/24/outline";
+import {client} from "api";
 
-export interface Item {
-  name: string;
-  href: string;
-}
+interface Props {}
 
-interface Props {
-  items: Item[];
-}
-
-export function Navigation(props: Props) {
-  const {items} = props;
+export async function Navigation(props: Props) {
+  const categories = await client.getCategories();
 
   return (
     <>
       <div className="hidden lg:flex lg:gap-x-12 border-b-2 box-content">
-        {items.map((item) => (
+        {categories.map((item) => (
           <a
-            key={item.name}
-            href={item.href}
+            key={item.title}
+            href={item.slug}
             className="font-semibold leading-6 border-b-2 border-transparent text-black hover:border-black"
           >
-            {item.name}
+            {item.title}
           </a>
         ))}
       </div>

@@ -1,7 +1,6 @@
 import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
-import {Header} from "./Header";
 import {Footer} from "./Footer";
 
 const inter = Inter({subsets: ["latin"]});
@@ -19,16 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div
-          className="border-b-2 border-gray-800"
-          style={{
-            background:
-              'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg") no-repeat',
-          }}
-        >
-          <Header />
-          {children}
-        </div>
+        {children}
         <Footer />
       </body>
     </html>
