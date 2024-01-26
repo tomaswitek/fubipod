@@ -1,12 +1,13 @@
 import React from "react";
 import {EnvelopeIcon} from "@heroicons/react/24/outline";
-import {client} from "api";
+import {Category} from "types";
 
-interface Props {}
+interface Props {
+  categories: Category[];
+}
 
-export async function Navigation(props: Props) {
-  const categories = await client.getCategories();
-
+export function Navigation(props: Props) {
+  const {categories} = props;
   return (
     <>
       <div className="hidden lg:flex lg:gap-x-12 border-b-2 box-content">
