@@ -6,6 +6,18 @@ import {client} from "api";
 
 interface Props {}
 
+const languages = [
+  {name: "ENG", code: "en"},
+  {name: "CZ", code: "cz"},
+];
+
+const contacts = [
+  {label: "E", value: "hello@fubipod.com"},
+  {label: "T", value: "hello@fubipod.com"},
+];
+
+const socials = [{icon: "f"}, {icon: "i"}, {icon: "in"}];
+
 export async function Header(props: Props) {
   const {} = props;
   const categories = await client.getCategories();
@@ -13,16 +25,21 @@ export async function Header(props: Props) {
   return (
     <header className="z-50">
       <div className="bg-white flex px-3 py-4 justify-between">
-        <div className="align">ENG / CZ</div>
+        <div className="align">{languages.map((l) => l.name).join(" / ")}</div>
         <div className="flex">
           <div className="flex">
-            <div>E: hello@fubipod.com</div>
-            <div>T: +420 735 122 241</div>
+            {contacts.map((c) => (
+              <div key={c.label} className="mx-2">
+                {c.label}: {c.value}
+              </div>
+            ))}
           </div>
-          <div className="flex">
-            <div>f</div>
-            <div>i</div>
-            <div>in</div>
+          <div className="flex mx-2">
+            {socials.map((s, i) => (
+              <div key={i} className="mx-2">
+                {s.icon}
+              </div>
+            ))}
           </div>
         </div>
       </div>
