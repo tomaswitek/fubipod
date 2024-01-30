@@ -1,5 +1,6 @@
 import {Hero} from "./Hero";
 import {Header} from "./Header";
+import {Footer} from "./Footer";
 // import type {InferGetStaticPropsType, GetStaticProps} from "next";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <Header />
         <Hero />
       </div>
+      <Footer />
     </main>
   );
 }
