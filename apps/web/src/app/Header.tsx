@@ -124,7 +124,7 @@ export async function Header(props: Props) {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Logo dark />
+          <Logo />
         </div>
         <MobileNavigation items={mainNavigation} />
         <Navigation items={mainNavigation} />

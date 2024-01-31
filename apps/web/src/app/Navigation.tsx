@@ -1,5 +1,4 @@
 import React from "react";
-import {EnvelopeIcon} from "@heroicons/react/24/outline";
 import {Link} from "@/components/Link";
 import {Button} from "@/components/Button";
 
