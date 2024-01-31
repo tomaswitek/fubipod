@@ -18,25 +18,26 @@ interface Button {
 interface Props {
   id: string;
   title?: string;
-  headline?: string;
-  content?: string;
+  headline: string;
+  content: string;
   buttons?: Button[];
 }
 
 export function CallToAction(props: Props) {
-  const {title, content, buttons = []} = props;
+  const {headline, content, buttons = []} = props;
   return (
     <div className="bg-bg">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 p-10">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div>
-            <h3 className="text-primary text-5xl mb-6">{title}</h3>
-            {content && (
-              <div
-                className="text-gray-300 text-lg"
-                dangerouslySetInnerHTML={{__html: content}}
-              />
-            )}
+            <h3
+              className="text-primary text-5xl mb-6"
+              dangerouslySetInnerHTML={{__html: headline}}
+            />
+            <div
+              className="text-gray-300 text-lg"
+              dangerouslySetInnerHTML={{__html: content}}
+            />
           </div>
           <div className="flex justify-end">
             {buttons.map((button, index) => (

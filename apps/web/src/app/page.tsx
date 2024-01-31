@@ -12,6 +12,7 @@ export default function Home() {
       props: {
         id: "fubi-coworking-hub",
         title: "O fubi",
+        headline: '<span class="text-white">O</span> FUBI',
         buttons: [
           {
             label: "FUBI coworking HUB",
