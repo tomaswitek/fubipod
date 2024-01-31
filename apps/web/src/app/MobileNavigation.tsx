@@ -3,14 +3,13 @@ import React, {useState} from "react";
 import {Dialog} from "@headlessui/react";
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 import {Logo} from "./Logo";
-import {Category} from "types";
 
 interface Props {
-  categories: Category[];
+  items: any[];
 }
 
 export function MobileNavigation(props: Props) {
-  const {categories} = props;
+  const {items} = props;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -45,7 +44,7 @@ export function MobileNavigation(props: Props) {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/25">
               <div className="space-y-2 py-6">
-                {categories.map((item) => (
+                {items.map((item) => (
                   <a
                     key={item.title}
                     href={item.slug}

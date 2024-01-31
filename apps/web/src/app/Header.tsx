@@ -18,13 +18,22 @@ const contacts = [
 
 const socials = [{icon: "f"}, {icon: "i"}, {icon: "in"}];
 
+const mainNavigation = [
+  {title: "FUBI APP", slug: "/app"},
+  {title: "FUBI SHOP", slug: "/shop"},
+  {title: "FUBI POD", slug: "/pod"},
+  {title: "FUBI HOUSE", slug: "/house"},
+  {title: "Poptávka", slug: "/poptavka", button: true},
+  {title: "Katalog", slug: "/katalog", button: true},
+];
+
 export async function Header(props: Props) {
   const {} = props;
-  const categories = await client.getCategories();
+  // const categories = await client.getCategories();
 
   return (
     <header className="z-50">
-      <div className="bg-white flex px-3 py-4 justify-between">
+      <div className="bg-white lg:flex p-6 lg:px-8 py-4 justify-between hidden">
         <div className="align">{languages.map((l) => l.name).join(" / ")}</div>
         <div className="flex">
           <div className="flex">
@@ -44,14 +53,14 @@ export async function Header(props: Props) {
         </div>
       </div>
       <nav
-        className="flex items-center justify-between p-6 lg:px-8"
+        className="flex items-center justify-between p-6 lg:px-8 bg-bg opacity-90"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <Logo dark />
         </div>
-        <MobileNavigation categories={categories} />
-        <Navigation categories={categories} />
+        <MobileNavigation items={mainNavigation} />
+        <Navigation items={mainNavigation} />
       </nav>
     </header>
   );
