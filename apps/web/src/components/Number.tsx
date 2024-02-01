@@ -13,14 +13,7 @@ export function Number(props: Props) {
 
   const className = clsx("text-gray-300 text-5xl", props.className);
 
-  return (
-    <div className={className}>
-      <div className="relative">
-        <div className="absolute">{number}</div>
-        <div className="absolute text-bg ">{number}</div>
-      </div>
-    </div>
-  );
+  return <div className={className}>{number}</div>;
 }
 
 export default Number;

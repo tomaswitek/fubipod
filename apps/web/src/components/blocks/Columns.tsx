@@ -34,13 +34,12 @@ function ColumnRow(props: ColumnRowProps, index: number) {
         <>
           <div className="text-gray-300 text-xl tracking-widest">{title}</div>
           <div className="inline-block w-20 h-px bg-gray-300" />
-          <div className="inline-block w-20 h-px bg-gray-300" />
           <BlockContent className="mt-10" content={content} />
-          <Number value={index + 1} className="flex justify-end mt-8" />
+          <Number value={index + 1} className="flex justify-end mt-8 static" />
         </>
       ) : (
         <div className="flex">
-          <Number className="mr-16" value={index + 1} />
+          <Number className="mr-6" value={index + 1} />
           <div>
             <div className="text-gray-300 text-xl tracking-widest">{title}</div>
             <div className="inline-block w-20 h-px bg-gray-300" />

@@ -1,11 +1,8 @@
 import {Hero} from "./Hero";
 import {Header} from "./Header";
 import {Footer} from "./Footer";
-import {CallToAction, Columns} from "@/components/blocks";
-import {
-  ButtonVariant,
-  Props as CallToActionProps,
-} from "@/components/blocks/CallToAction";
+import {CallToAction, Columns, Steps} from "@/components/blocks";
+import {ButtonVariant} from "@/components/blocks/CallToAction";
 
 const blocks = [
   {
@@ -107,6 +104,36 @@ KDYŽ SE ŘEKNE FUBI APP PŘEDSTAVTE SI APLIKACI, KTERÁ JE ŠITÁ NA MÍRU PRO 
         {
           id: "naklady",
           title: "doplnit důvody",
+        },
+      ],
+    },
+  },
+  {
+    component: Steps,
+    props: {
+      headline: '<span class="text-white">Průběh</span> spolupráce',
+      steps: [
+        {
+          title: "Client needs",
+          content: `
+          Neustále se snažíme překonávat a posunovat hranice technologie a designu. Naše nabídka produktů je směsicí inovací, estetiky a udržitelnosti. Chceme být průkopníky ve vývoji ekologicky šetrných a energeticky úsporných řešení, která zároveň poskytují pohodlí a kvalitu.
+          `,
+          image: "/app.svg",
+        },
+        {
+          title: "Client needs",
+          content: "Nulla one sapienu tincie miss oviverra odio sen enma matis",
+          image: "/app.svg",
+        },
+        {
+          title: "Client needs",
+          content: "Nulla one sapienu tincie miss oviverra odio sen enma matis",
+          image: "/app.svg",
+        },
+        {
+          title: "Client needs",
+          content: "Nulla one sapienu tincie miss oviverra odio sen enma matis",
+          image: "/app.svg",
         },
       ],
     },
