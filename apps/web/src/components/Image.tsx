@@ -1,5 +1,5 @@
 import React from "react";
-import NextImage, {ImageProps} from "next/Image";
+import NextImage, {ImageProps} from "next/image";
 
 interface Props extends ImageProps {
   //   children: React.ReactNode;
