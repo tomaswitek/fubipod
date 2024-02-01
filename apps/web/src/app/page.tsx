@@ -1,7 +1,7 @@
 import {Hero} from "./Hero";
 import {Header} from "./Header";
 import {Footer} from "./Footer";
-import {CallToAction, Columns, Steps} from "@/components/blocks";
+import {CallToAction, Columns, Steps, Team} from "@/components/blocks";
 import {ButtonVariant} from "@/components/blocks/CallToAction";
 
 const blocks = [
@@ -134,6 +134,53 @@ KDYŽ SE ŘEKNE FUBI APP PŘEDSTAVTE SI APLIKACI, KTERÁ JE ŠITÁ NA MÍRU PRO 
           title: "Client needs",
           content: "Nulla one sapienu tincie miss oviverra odio sen enma matis",
           image: "/app.svg",
+        },
+      ],
+    },
+  },
+  {
+    component: Team,
+    props: {
+      headline: '<span class="text-white">FUBI</span> tým',
+      members: [
+        {
+          name: "Tomáš Funk",
+          job_title: "CEO",
+          image: "/team/tf.jpeg",
+        },
+        {
+          name: "Kateřina Funková",
+          job_title: "CEO",
+          image: "/team/kf.jpeg",
+        },
+        {
+          name: "Jiří Kozák",
+          job_title: "Operation manager",
+          image: "/team/jk.jpeg",
+        },
+        {
+          name: "Tomáš Witek",
+          job_title: "CTO",
+          image: "/team/tw.jpeg",
+        },
+        {
+          name: "Zuzana Gucklerová",
+          job_title: "Business development & PM",
+          image: "/team/zg.jpeg",
+        },
+        {
+          name: "Naděžda Gränzerová",
+          job_title: "Office Manager",
+          image: "/team/na.jpeg",
+        },
+        {
+          name: "Lukáš Adámek",
+          job_title: "Quality manager",
+          image: "/team/la.jpeg",
+        },
+        {
+          name: "Join our Team!",
+          // image: "/team/jk.jpeg",
         },
       ],
     },

@@ -1,7 +1,7 @@
 import React from "react";
 import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {Number} from "@/components/Number";
-import Image from "next/image";
+import Image from "@/components/Image";
 
 interface StepProps {
   title: string;
