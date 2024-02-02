@@ -1,7 +1,8 @@
 import React from "react";
 import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {Number} from "@/components/Number";
-import Image from "@/components/Image";
+import {Image} from "@/components/Image";
+import {ColumnTitle} from "@/components/ColumnTitle";
 
 interface StepProps {
   title: string;
@@ -34,8 +35,7 @@ function Step(props: StepProps, key: number) {
         key={key}
         className="bg-bg-light rounded-xl p-6 pb-16 relative flex-1"
       >
-        <div className="text-gray-300 text-xl tracking-widest">{title}</div>
-        <div className="inline-block w-20 h-px bg-gray-300" />
+        <ColumnTitle title={title} />
         <BlockContent className="text-sm my-6" content={content} />
         <Number className="absolute right-6 bottom-6" value={key + 1} />
       </div>

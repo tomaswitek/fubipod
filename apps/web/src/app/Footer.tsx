@@ -1,3 +1,7 @@
+import Image from "@/components/Image";
+import {BlockContent} from "@/components/Block";
+import {ColumnTitle} from "@/components/ColumnTitle";
+
 const navigation = {
   pods: [
     {name: "FUBI POD S", href: "#"},
@@ -99,7 +103,86 @@ const navigation = {
   ],
 };
 
+const footerNavigation = [
+  {
+    image: "/app.svg",
+    href: "/app",
+  },
+  {
+    image: "/shop.svg",
+    href: "/shop",
+  },
+  {
+    image: "/pod.svg",
+    href: "/pod",
+  },
+  {
+    image: "/house.svg",
+    href: "/house",
+  },
+];
+
+const testimonialBlock = {
+  headline: "Co o nás říkají klienti",
+  testimonials: [
+    {
+      title: "John Doe",
+      subtitle: "CEO ABC Ltd.",
+      content: `
+    TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT, TEXT,TEXT, TEXT, TEXT,
+    `,
+    },
+  ],
+};
+
 export function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-8 lg:pt-32">
+        <div
+          className="relative"
+          style={{
+            background:
+              'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg") no-repeat bottom',
+          }}
+        >
+          <div className="grid md:grid-cols-2 pt-28 pb-9">
+            <div>Play</div>
+            <div className="flex justify-center">
+              {testimonialBlock.testimonials.map((item, index) => (
+                <div
+                  className="bg-bg text-gray-300 w-96 p-10 z-50 lg:relative"
+                  key={index}
+                >
+                  <ColumnTitle title={testimonialBlock.headline} />
+                  <BlockContent content={item.content} className="py-10" />
+                  <div className="text-primary">{item.title}</div>
+                  <div>{item.subtitle}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 bg-bg-light md:absolute bottom-0 w-full">
+            <div className="grid grid-cols-2 lg:grid-cols-4 mx-auto">
+              {footerNavigation.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center justify-center p-4"
+                >
+                  <Image src={item.image} width={100} height={100} alt="" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div>bottom</div>
+      </div>
+    </footer>
+  );
   return (
     <footer aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">

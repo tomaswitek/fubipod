@@ -2,6 +2,7 @@ import React from "react";
 import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {Image} from "@/components/Image";
 import {Number} from "@/components/Number";
+import {ColumnTitle} from "@/components/ColumnTitle";
 
 interface ColumnRowProps {
   id: string;
@@ -32,8 +33,7 @@ function ColumnRow(props: ColumnRowProps, index: number) {
       )}
       {content ? (
         <>
-          <div className="text-gray-300 text-xl tracking-widest">{title}</div>
-          <div className="inline-block w-20 h-px bg-gray-300" />
+          <ColumnTitle title={title} />
           <BlockContent className="mt-10" content={content} />
           <Number value={index + 1} className="flex justify-end mt-8 static" />
         </>
@@ -41,8 +41,7 @@ function ColumnRow(props: ColumnRowProps, index: number) {
         <div className="flex">
           <Number className="mr-6" value={index + 1} />
           <div>
-            <div className="text-gray-300 text-xl tracking-widest">{title}</div>
-            <div className="inline-block w-20 h-px bg-gray-300" />
+            <ColumnTitle title={title} />
           </div>
         </div>
       )}
