@@ -1,6 +1,6 @@
-import {Hero} from "./Hero";
-import {Header} from "./Header";
-import {Footer} from "./Footer";
+import {Hero} from "@/components/Hero";
+import {Header} from "@/components/Header";
+import {Footer} from "@/components/Footer";
 import {CallToAction, Columns, Steps, Team} from "@/components/blocks";
 import {ButtonVariant} from "@/components/blocks/CallToAction";
 
