@@ -2,8 +2,9 @@ import Image from "@/components/Image";
 import {BlockContent} from "@/components/Block";
 import {ColumnTitle} from "@/components/ColumnTitle";
 import {Button} from "@/components/Button";
+import {Link} from "@/components/Link";
 
-const footerNavigation = [
+const footerIconsNavigation = [
   {
     image: "/app.svg",
     href: "/app",
@@ -44,6 +45,17 @@ const contact = {
   addressCountry: "Czech Republic",
   bankAccount: "2953902002/5500",
 };
+
+const footerNavigation = [
+  {
+    href: "/terms",
+    title: "Obchodní podmínky",
+  },
+  {
+    href: "/conds",
+    title: "Zásady ochrany osobních dat",
+  },
+];
 
 interface ContactProps {
   title: string;
@@ -91,7 +103,7 @@ export function Footer() {
           </div>
           <div className="grid md:grid-cols-2 bg-bg-light md:absolute bottom-0 w-full">
             <div className="grid grid-cols-2 lg:grid-cols-4 mx-auto">
-              {footerNavigation.map((item) => (
+              {footerIconsNavigation.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
@@ -103,46 +115,57 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div>
-          <div className="grid lg:grid-cols-3">
-            <div className="p-12 border-">
-              <Contact title="Kontakt" content={contact.phone} />
-              <Contact title="Email" content={contact.email} />
-            </div>
-            <div className="p-12 border-l-2 border-bg-light">
-              <Contact
-                title="Kontakt"
-                content={
-                  <>
-                    <div>{contact.company}</div>
-                    <div>
-                      ICO:{contact.companyId} DIC:{contact.companyVat}
-                    </div>
-                    <div>{contact.bankAccount}</div>
-                    <div>{contact.addressCountry}</div>
-                  </>
-                }
-              />
-            </div>
-            <div className="p-12 flex border-l-2 border-bg-light items-center">
-              <form className="flex-1">
-                <div className="bg-primary flex justify-center items-center">
-                  <input
-                    className="bg-bg text-gray-300 text-center ml-1 h-8 flex-1"
-                    type="email"
-                    placeholder="@example.com"
-                    required
-                  />
-                  <Button
-                    className="text-center text-white px-4"
-                    onClick={() => null}
-                  >
-                    Odebírat newsletter
-                  </Button>
-                </div>
-              </form>
-            </div>
+        <div className="grid lg:grid-cols-3">
+          <div className="p-10 border-">
+            <Contact title="Kontakt" content={contact.phone} />
+            <Contact title="Email" content={contact.email} />
           </div>
+          <div className="p-10 border-l-2 border-bg-light">
+            <Contact
+              title="Kontakt"
+              content={
+                <>
+                  <div>{contact.company}</div>
+                  <div>
+                    ICO:{contact.companyId} DIC:{contact.companyVat}
+                  </div>
+                  <div>{contact.bankAccount}</div>
+                  <div>{contact.addressCountry}</div>
+                </>
+              }
+            />
+          </div>
+          <div className="p-10 flex border-l-2 border-bg-light items-center">
+            <form className="flex-1">
+              <div className="bg-primary flex justify-center items-center">
+                <input
+                  className="bg-bg text-gray-300 text-center ml-1 h-8 flex-1"
+                  type="email"
+                  placeholder="@example.com"
+                  required
+                />
+                <Button
+                  className="text-center text-white px-4"
+                  onClick={() => null}
+                >
+                  Odebírat newsletter
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="grid lg:grid-cols-3">
+          <div className="p-10 border-t-2 border-bg-light" />
+          {footerNavigation.map((item, index) => (
+            <div
+              className="p-10 border-l-2 border-t-2 border-bg-light"
+              key={index}
+            >
+              <Link href={item.href} className="text-gray-300">
+                {item.title}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </footer>
