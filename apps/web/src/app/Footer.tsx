@@ -117,8 +117,18 @@ export function Footer() {
         </div>
         <div className="grid lg:grid-cols-3">
           <div className="p-10 border-">
-            <Contact title="Kontakt" content={contact.phone} />
-            <Contact title="Email" content={contact.email} />
+            <Contact
+              title="Kontakt"
+              content={
+                <Link href={`tel:${contact.phone}`}>{contact.phone}</Link>
+              }
+            />
+            <Contact
+              title="Email"
+              content={
+                <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
+              }
+            />
           </div>
           <div className="p-10 border-l-2 border-bg-light">
             <Contact
