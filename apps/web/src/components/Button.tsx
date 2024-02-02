@@ -16,11 +16,7 @@ export function Button(props: Props) {
   );
 
   if (onClick) {
-    return (
-      <button className={className} onClick={onClick}>
-        {children}
-      </button>
-    );
+    return <button className={className}>{children}</button>;
   }
 
   if (href) {
