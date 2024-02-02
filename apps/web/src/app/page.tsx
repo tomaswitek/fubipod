@@ -146,12 +146,12 @@ KDYŽ SE ŘEKNE FUBI APP PŘEDSTAVTE SI APLIKACI, KTERÁ JE ŠITÁ NA MÍRU PRO 
         {
           name: "Tomáš Funk",
           job_title: "CEO",
-          image: "/team/tf.jpeg",
+          image: "/team/tf.png",
         },
         {
           name: "Kateřina Funková",
           job_title: "CEO",
-          image: "/team/kf.jpeg",
+          image: "/team/kf.png",
         },
         {
           name: "Jiří Kozák",
@@ -191,7 +191,6 @@ export default function Home() {
   return (
     <main>
       <div
-        className="border-b-2 border-gray-800"
         style={{
           background:
             'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg") no-repeat top',
