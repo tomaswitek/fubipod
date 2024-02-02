@@ -166,7 +166,7 @@ KDYŽ SE ŘEKNE FUBI APP PŘEDSTAVTE SI APLIKACI, KTERÁ JE ŠITÁ NA MÍRU PRO 
         {
           name: "Zuzana Gucklerová",
           job_title: "Business development & PM",
-          image: "/team/zg.jpeg",
+          image: "/team/zg.png",
         },
         {
           name: "Naděžda Gränzerová",
