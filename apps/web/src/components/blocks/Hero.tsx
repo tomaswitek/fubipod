@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "@/components/Image";
+import {HeroBlock} from "types/blocks";
 
-interface Props {}
+interface Props extends HeroBlock {}
 
 const categories = [
   {
@@ -40,7 +41,8 @@ const hero = {
 };
 
 export function Hero(props: Props) {
-  const {} = props;
+  // console.log("hero", hero);
+  console.log("props", props);
 
   return (
     <div className="mx-auto max-w-7xl px-6 text-center lg:px-8 pb-10">

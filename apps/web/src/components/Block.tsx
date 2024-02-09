@@ -1,5 +1,11 @@
 import React, {PropsWithChildren} from "react";
 import {clsx} from "clsx";
+import {Hero} from "./blocks";
+import {Block, BlockCollection} from "types";
+
+const BLOCK_COMPONENTS = {
+  [BlockCollection.Hero]: Hero,
+};
 
 interface BlockTitleProps {
   title: string;
@@ -45,6 +51,12 @@ export function BlockWrapper(props: BlockWrapperProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 p-10">{children}</div>
     </div>
   );
+}
+
+export function Block(props: Block) {
+  const Component = BLOCK_COMPONENTS[props.collection];
+  if (!Component) return null;
+  return <Component {...props.item} />;
 }
 
 export default BlockTitle;

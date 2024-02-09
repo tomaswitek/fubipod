@@ -1,5 +1,4 @@
 import React from "react";
-import {Hero} from "@/components/Hero";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {CallToAction, Columns, Pricing} from "@/components/blocks";
@@ -75,7 +74,6 @@ function Page(props: Props) {
         }}
       >
         <Header />
-        <Hero />
         {blocks.map((block) => (
           <block.component key={block.props.id} {...(block.props as any)} />
         ))}

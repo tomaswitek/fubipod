@@ -1,5 +1,10 @@
+import {PageBlock} from "./blocks";
+
+export * from "./blocks";
+
 export interface Schema {
   categories: Category[];
+  pages: Page[];
 }
 
 export enum Status {
@@ -11,6 +16,22 @@ export enum Status {
 export enum LanguageCode {
   cs = "cs",
   en = "en",
+}
+
+export interface Page {
+  id: string;
+  slug: string;
+  status: Status;
+  sort: number;
+  title: string;
+  seo: Seo;
+  blocks: PageBlock[];
+}
+
+export interface Seo {
+  id: string;
+  title: string;
+  description: string;
 }
 
 export interface Translation {

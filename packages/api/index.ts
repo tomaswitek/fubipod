@@ -15,6 +15,24 @@ const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
 export const client = {
   ...directusClient,
 
+  getPage: async (slug: string) => {
+    const pages = await directusClient.request(
+      readItems("pages", {
+        filter: {slug: {_eq: slug}, status: {_eq: Status.Published}},
+        limit: 1,
+        fields: [
+          "*",
+          {
+            blocks: ["*", "item.*", "item.translations.*"],
+          },
+        ],
+      })
+    );
+    if (pages.length > 0) {
+      return pages[0];
+    }
+  },
+
   getCategories: async () => {
     return await directusClient.request(
       readItems("categories", {
