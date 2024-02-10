@@ -14,7 +14,7 @@ export interface NavigationItemTranslation extends Translation {
   label: string;
 }
 
-export interface NavigationItem {
+export interface NavigationItem extends NavigationItemTranslation {
   id: string;
   sort: number;
   has_children: boolean;

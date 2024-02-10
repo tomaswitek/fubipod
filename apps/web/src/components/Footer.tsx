@@ -3,25 +3,7 @@ import {BlockContent} from "@/components/Block";
 import {ColumnTitle} from "@/components/ColumnTitle";
 import {Button} from "@/components/Button";
 import {Link} from "@/components/Link";
-
-const footerIconsNavigation = [
-  {
-    image: "/app.svg",
-    href: "/app",
-  },
-  {
-    image: "/shop.svg",
-    href: "/shop",
-  },
-  {
-    image: "/pod.svg",
-    href: "/pod",
-  },
-  {
-    image: "/house.svg",
-    href: "/house",
-  },
-];
+import {client} from "api";
 
 const testimonialBlock = {
   headline: "Co o nás říkají klienti",
@@ -71,7 +53,11 @@ function Contact(props: ContactProps) {
   );
 }
 
-export function Footer() {
+export async function Footer() {
+  const navigation = await client.getNavigation("categories");
+
+  console.log(navigation?.items);
+
   return (
     <footer aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -103,10 +89,10 @@ export function Footer() {
           </div>
           <div className="grid md:grid-cols-2 bg-bg-light md:absolute bottom-0 w-full">
             <div className="grid grid-cols-2 lg:grid-cols-4 mx-auto">
-              {footerIconsNavigation.map((item) => (
+              {navigation?.items.map((item) => (
                 <a
-                  key={item.href}
-                  href={item.href}
+                  key={item.id}
+                  href={item.page?.slug || "#"}
                   className="flex items-center justify-center p-4"
                 >
                   <Image src={item.image} width={100} height={100} alt="" />

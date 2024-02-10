@@ -9,6 +9,11 @@ const nextConfig = {
     defaultLocale: "cs",
     localeDetection: false,
   },
+  images: {
+    dangerouslyAllowSVG: true,
+    // domains: [process.env.NEXT_API_URL],
+    domains: ["api.example.com"],
+  },
 };
 
 export default nextConfig;

@@ -7,7 +7,12 @@ interface Props extends ImageProps {
 }
 
 export function Image(props: Props) {
-  return <NextImage {...props}>{props.children}</NextImage>;
+  const src = `${process.env.NEXT_PUBLIC_API_URL}/assets/${props.src}`;
+  return (
+    <NextImage {...props} src={src}>
+      {props.children}
+    </NextImage>
+  );
 }
 
-export default NextImage;
+export default Image;

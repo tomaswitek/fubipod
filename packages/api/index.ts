@@ -24,7 +24,7 @@ export const client = {
         fields: [
           "*",
           {
-            items: ["*", "translations.*"],
+            items: ["*", "translations.*", "page.*"],
           },
         ],
       })
@@ -35,7 +35,6 @@ export const client = {
   },
 
   getPage: async (slug: string) => {
-    console.log("client.getPage", client.locale);
     const mapBlocks = (block: Block) => {
       const item = {
         ...block.item,
