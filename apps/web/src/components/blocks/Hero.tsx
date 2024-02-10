@@ -41,6 +41,7 @@ const hero = {
 };
 
 export function Hero(props: Props) {
+  const {headline} = props;
   // console.log("hero", hero);
   console.log("props", props);
 
@@ -50,7 +51,7 @@ export function Hero(props: Props) {
         className="lg:text-5xl text-3xl text-white bg-bg m-10 inline-block px-10 py-5 bg-opacity-50"
         style={{letterSpacing: 12}}
       >
-        {hero.title}
+        {headline}
       </h2>
       <ul
         role="list"

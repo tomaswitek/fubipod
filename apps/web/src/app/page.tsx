@@ -1,8 +1,19 @@
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {Page} from "@/components/Page";
+// import {GetStaticProps} from "next";
 
-export default async function Home() {
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   console.log("getStaticPropssssssssss", context);
+//   const {locale} = context;
+//   return {props: {locale}};
+// };
+
+interface Props {
+  locale: string;
+}
+
+export default async function Home(props: Props) {
   return (
     <main>
       <div
@@ -12,7 +23,7 @@ export default async function Home() {
         }}
       >
         <Header />
-        <Page slug="home" />
+        <Page {...props} slug="home" />
       </div>
       <Footer />
     </main>

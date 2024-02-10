@@ -6,7 +6,7 @@ import {
   authentication,
   RestCommand,
 } from "@directus/sdk";
-import {Schema, Status} from "types";
+import {Schema, Status, Block} from "types";
 
 const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
   .with(rest())
@@ -14,8 +14,38 @@ const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
 
 export const client = {
   ...directusClient,
+  locale: "cs-CZ",
+
+  getNavigation: async (id: string) => {
+    const navigations = await directusClient.request(
+      readItems("navigation", {
+        filter: {id: {_eq: id}, status: {_eq: Status.Published}},
+        limit: 1,
+        fields: [
+          "*",
+          {
+            items: ["*", "translations.*"],
+          },
+        ],
+      })
+    );
+    if (navigations.length > 0) {
+      return navigations[0];
+    }
+  },
 
   getPage: async (slug: string) => {
+    console.log("client.getPage", client.locale);
+    const mapBlocks = (block: Block) => {
+      const item = {
+        ...block.item,
+        ...block.item.translations.find(
+          (t) => t.languages_code === client.locale
+        ),
+      };
+      return {...block, item};
+    };
+
     const pages = await directusClient.request(
       readItems("pages", {
         filter: {slug: {_eq: slug}, status: {_eq: Status.Published}},
@@ -29,7 +59,9 @@ export const client = {
       })
     );
     if (pages.length > 0) {
-      return pages[0];
+      const page = pages[0];
+      page.blocks = page.blocks.map(mapBlocks);
+      return page;
     }
   },
 
@@ -74,3 +106,9 @@ export const client = {
   //   );
   // },
 };
+
+export function getClient(locale: string) {
+  // TODO: fix locale
+  // client.locale = locale;
+  return client;
+}

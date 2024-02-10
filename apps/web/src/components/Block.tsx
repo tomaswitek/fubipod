@@ -53,10 +53,10 @@ export function BlockWrapper(props: BlockWrapperProps) {
   );
 }
 
-export function Block(props: Block) {
+export function Block(props: Block, index: number) {
   const Component = BLOCK_COMPONENTS[props.collection];
   if (!Component) return null;
-  return <Component {...props.item} />;
+  return <Component key={index} {...props.item} />;
 }
 
 export default BlockTitle;

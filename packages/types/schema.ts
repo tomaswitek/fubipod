@@ -1,8 +1,11 @@
 import {Block} from "./blocks";
 import {Status} from "./common";
-import {Seo} from "./seo";
-export * from "./blocks";
-export * from "./common";
+import {Navigation} from "./navigation";
+
+export interface Schema {
+  pages: Page[];
+  navigation: Navigation[];
+}
 
 export interface Page {
   id: string;
@@ -12,4 +15,10 @@ export interface Page {
   title: string;
   seo: Seo;
   blocks: Block[];
+}
+
+export interface Seo {
+  id: string;
+  title: string;
+  description: string;
 }

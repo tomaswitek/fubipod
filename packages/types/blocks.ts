@@ -1,4 +1,4 @@
-import {Translation} from "./index";
+import {Translation} from "./common";
 
 export enum BlockCollection {
   Hero = "block_hero",
@@ -11,7 +11,7 @@ export interface Block {
   item: PageBlock;
 }
 
-export interface HeroBlock {
+export interface HeroBlock extends HeroBlockTranslation {
   id: string;
   title: string;
   image: string;
