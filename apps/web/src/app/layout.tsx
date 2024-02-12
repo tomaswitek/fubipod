@@ -1,8 +1,6 @@
 import type {Metadata} from "next";
 import {Bebas_Neue} from "next/font/google";
 import "./globals.css";
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
 
 const font = Bebas_Neue({subsets: ["latin"], weight: ["400"]});
 
@@ -11,18 +9,15 @@ export const metadata: Metadata = {
   description: "More with less",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(
+  props: Readonly<{
+    children: React.ReactNode;
+  }>
+) {
+  const {children} = props;
   return (
     <html lang="en">
-      <body className={font.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }

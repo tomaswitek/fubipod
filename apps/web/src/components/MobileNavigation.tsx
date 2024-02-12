@@ -3,13 +3,16 @@ import React, {useState} from "react";
 import {Dialog} from "@headlessui/react";
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 import {Logo} from "./Logo";
+import {NavigationItem} from "types/navigation";
+import {clsx} from "clsx";
 
 interface Props {
-  items: any[];
+  items: NavigationItem[];
+  slug: string;
 }
 
 export function MobileNavigation(props: Props) {
-  const {items} = props;
+  const {items, slug} = props;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -47,20 +50,15 @@ export function MobileNavigation(props: Props) {
                 {items.map((item) => (
                   <a
                     key={item.title}
-                    href={item.slug}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                    href={item.page?.slug || "/"}
+                    className={clsx(
+                      "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800",
+                      slug === item.page?.slug && "underline"
+                    )}
                   >
                     {item.title}
                   </a>
                 ))}
-              </div>
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
-                >
-                  Kontakt
-                </a>
               </div>
             </div>
           </div>

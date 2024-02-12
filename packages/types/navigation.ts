@@ -23,4 +23,5 @@ export interface NavigationItem extends NavigationItemTranslation {
   parent: NavigationItem;
   translations: NavigationItemTranslation[];
   image: string;
+  icon: string;
 }

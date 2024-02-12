@@ -4,7 +4,9 @@ import {MobileNavigation} from "./MobileNavigation";
 import {Logo} from "./Logo";
 import {client} from "api";
 
-interface Props {}
+interface Props {
+  slug: string;
+}
 
 const languages = [
   {name: "ENG", code: "en"},
@@ -68,18 +70,11 @@ const socials = [
   },
 ];
 
-const mainNavigation = [
-  {title: "FUBI APP", slug: "/app"},
-  {title: "FUBI SHOP", slug: "/shop"},
-  {title: "FUBI POD", slug: "/pod"},
-  {title: "FUBI HOUSE", slug: "/house"},
-  {title: "Poptávka", slug: "/poptavka", button: true},
-  {title: "Katalog", slug: "/katalog", button: true},
-];
-
 export async function Header(props: Props) {
-  const {} = props;
-  // const categories = await client.getCategories();
+  const {slug} = props;
+  const categories = await client.getNavigation("categories");
+  const main = await client.getNavigation("main");
+  const mainNavigation = [...categories?.items!, ...main?.items!];
 
   return (
     <header className="z-50">
@@ -126,8 +121,8 @@ export async function Header(props: Props) {
         <div className="flex lg:flex-1">
           <Logo />
         </div>
-        <MobileNavigation items={mainNavigation} />
-        <Navigation items={mainNavigation} />
+        <MobileNavigation items={mainNavigation} slug={slug} />
+        <Navigation items={mainNavigation} slug={slug} />
       </nav>
     </header>
   );
