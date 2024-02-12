@@ -16,6 +16,9 @@ export function Notification(props: Props) {
 
   useEffect(() => {
     setShow(props.show);
+    setTimeout(() => {
+      setShow(false);
+    }, 5000);
   }, [props.show]);
 
   return (
