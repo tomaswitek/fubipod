@@ -56,8 +56,6 @@ function Contact(props: ContactProps) {
 export async function Footer() {
   const navigation = await client.getNavigation("categories");
 
-  console.log(navigation?.items);
-
   return (
     <footer aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">

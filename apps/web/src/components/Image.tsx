@@ -1,13 +1,14 @@
 import React from "react";
 import NextImage, {ImageProps} from "next/image";
 
-interface Props extends ImageProps {
-  //   children: React.ReactNode;
-  //   className?: string;
+interface Props extends ImageProps {}
+
+export function imageSrc(src: ImageProps["src"]) {
+  return `${process.env.NEXT_PUBLIC_API_URL}/assets/${src}`;
 }
 
 export function Image(props: Props) {
-  const src = `${process.env.NEXT_PUBLIC_API_URL}/assets/${props.src}`;
+  const src = imageSrc(props.src);
   return (
     <NextImage {...props} src={src}>
       {props.children}

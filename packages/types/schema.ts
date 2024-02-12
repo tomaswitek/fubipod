@@ -1,24 +1,11 @@
 import {Block} from "./blocks";
 import {Status} from "./common";
 import {Navigation} from "./navigation";
+import {GlobalData} from "./globals";
+import {Page} from "./pages";
 
 export interface Schema {
   pages: Page[];
   navigation: Navigation[];
-}
-
-export interface Page {
-  id: string;
-  slug: string;
-  status: Status;
-  sort: number;
-  title: string;
-  seo: Seo;
-  blocks: Block[];
-}
-
-export interface Seo {
-  id: string;
-  title: string;
-  description: string;
+  globals: GlobalData;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "@/components/Link";
 
 interface Props {
   width?: number;
@@ -9,7 +10,7 @@ interface Props {
 export function Logo(props: Props) {
   const {height = 55, width, color = "#e0e0e0"} = props;
   return (
-    <a href="#" className="-m-1.5 p-1.5">
+    <Link href="/" className="-m-1.5 p-1.5">
       <span className="sr-only">FUBI</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +25,7 @@ export function Logo(props: Props) {
           <path d="M117.77 58.86a6.35 6.35 0 01-6.36 6.35H82.06a5.58 5.58 0 01-5.58-5.58V24h8.26V57h24.77V24h8.26zM65.24 98.21V86.79a4.6 4.6 0 00-4.61-4.59H24l0 41.27 36.24 0a5 5 0 005-5v-11a7.74 7.74 0 00-.46-2.55 4.27 4.27 0 00-1.25-2 3.94 3.94 0 001.34-2A9 9 0 0065.24 98.21zm-33-7.75H56a.88.88 0 01.69.28.91.91 0 01.28.68v6.31a1 1 0 01-.5.83 1.22 1.22 0 01-.53.15H32.21zm0 16.49H56a.94.94 0 01.82.53.88.88 0 01.15.5l0 6.2c0 .7-.33 1-1 1H32.21z"></path>
         </g>
       </svg>
-    </a>
+    </Link>
   );
 }
 

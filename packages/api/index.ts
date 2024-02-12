@@ -52,7 +52,7 @@ export const client = {
         fields: [
           "*",
           {
-            blocks: ["*", "item.*", "item.translations.*"],
+            blocks: ["*", "item.*", "item.translations.*", "seo.*"],
           },
         ],
       })
@@ -64,12 +64,12 @@ export const client = {
     }
   },
 
-  getCategories: async () => {
+  getGlobalData: async () => {
     return await directusClient.request(
-      readItems("categories", {
-        filter: {status: {_eq: Status.Published}},
+      readItems("globals", {
+        // filter: {status: {_eq: Status.Published}},
         // fields: ["*", {translations: ["*"]}],
-        fields: ["*", "translations.*"],
+        // fields: ["*", "translations.*"],
       })
     );
   },

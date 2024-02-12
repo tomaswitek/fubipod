@@ -1,0 +1,33 @@
+{
+  "data": {
+    "address_country": "CZ",
+    "address_locality": "Bohumín",
+    "address_region": "Moravskoslezský kraj",
+    "build_hook_url": "https://api.netlify.com/build_hooks/6410cc4f3210881c58bf4223",
+    "description": "FUBI  More with less",
+    "email": " hello@fubipod.com",
+    "id": "ab89c489-faea-4310-8b59-7ddb3caf279a",
+    "og_image": "c75ba887-6559-4a21-83de-f70e8878cbf0",
+    "phone": "+420 737 001 575",
+    "postal_code": "735 52",
+    "routes": [
+      {"collection": "pages", "route": "/{{ slug }}"},
+      {"collection": "posts", "route": "/posts/{{ slug }}"},
+      {"collection": "categories", "route": "/posts/categories/{{ slug }}"},
+      {"collection": "projects", "route": "/projects/{{ slug }}"}
+    ],
+    "social_links": [
+      {"service": "facebook", "url": "https://www.facebook.com/FUBIpod"},
+      {
+        "service": "linkedin",
+        "url": "https://www.linkedin.com/company/fubipod/about/"
+      },
+      {"service": "instagram", "url": "https://www.instagram.com/fubi_pod/"}
+    ],
+    "street_address": "Bezručova 101",
+    "tagline": "More with less",
+    "title": "FUBI",
+    "twitter_image": "c75ba887-6559-4a21-83de-f70e8878cbf0",
+    "url": "https://fubipod.com"
+  }
+}
