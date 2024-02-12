@@ -11,6 +11,6 @@ interface Props {
 
 export default async function Home(props: Props) {
   const {params} = props;
-  const slug: string = params.slug || "home";
+  const slug = params.slug || "home";
   return <Page {...props} slug={slug} />;
 }
