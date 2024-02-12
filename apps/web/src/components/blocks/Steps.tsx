@@ -5,7 +5,9 @@ import {Image} from "@/components/Image";
 import {ColumnTitle} from "@/components/ColumnTitle";
 import {StepsBlock, StepsBlockItem} from "types";
 
-function Step(props: StepsBlockItem, key: number) {
+interface StepProps extends StepsBlockItem {}
+
+function Step(props: StepProps, key: number) {
   const {title, content, image} = props;
   return (
     <div className="flex flex-col" key={key}>
@@ -33,7 +35,9 @@ function Step(props: StepsBlockItem, key: number) {
   );
 }
 
-export function Steps(props: StepsBlock) {
+interface StepsProps extends StepsBlock {}
+
+export function Steps(props: StepsProps) {
   const {headline, steps = []} = props;
 
   return (

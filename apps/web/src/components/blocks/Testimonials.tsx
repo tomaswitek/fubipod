@@ -5,9 +5,9 @@ import {ColumnTitle} from "@/components/ColumnTitle";
 import {client} from "api";
 import {TestimonialsBlock} from "types";
 
-interface Props extends TestimonialsBlock {}
+interface TestimonialsProps extends TestimonialsBlock {}
 
-export async function Testimonials(props: Props) {
+export async function Testimonials(props: TestimonialsProps) {
   const {title} = props;
   const categoryNavigation = await client.getNavigation("categories");
 

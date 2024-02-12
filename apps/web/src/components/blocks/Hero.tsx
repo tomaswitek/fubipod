@@ -4,9 +4,9 @@ import {HeroBlock} from "types/blocks";
 import {client} from "api";
 import {Link} from "@/components/Link";
 
-interface Props extends HeroBlock {}
+interface HeroProps extends HeroBlock {}
 
-export async function Hero(props: Props) {
+export async function Hero(props: HeroProps) {
   const {headline, image} = props;
   const navigation = await client.getNavigation("categories");
 

@@ -61,7 +61,7 @@ export function BlockWrapper(props: BlockWrapperProps) {
 export function Block(props: Block, index: number) {
   const Component = BLOCK_COMPONENTS[props.collection];
   if (!Component) return null;
-  return <Component key={index} {...props.item} />;
+  return <Component key={index} {...(props.item as any)} />;
 }
 
 export default BlockTitle;

@@ -10,16 +10,9 @@ export enum ButtonVariant {
   outline = "outline",
 }
 
-interface Button {
-  label: string;
-  href: string;
-  variant: ButtonVariant;
-  image: string;
-}
+export interface CallToActionProps extends CallToActionBlock {}
 
-export interface Props extends CallToActionBlock {}
-
-export function CallToAction(props: Props) {
+export function CallToAction(props: CallToActionProps) {
   const {headline, content, image, button_label, page} = props;
   return (
     <BlockWrapper>

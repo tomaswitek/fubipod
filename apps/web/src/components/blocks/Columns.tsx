@@ -5,9 +5,9 @@ import {Number} from "@/components/Number";
 import {ColumnTitle} from "@/components/ColumnTitle";
 import {ColumnsBlock, ColumnsBlockRow} from "types/blocks";
 
-export interface Props extends ColumnsBlock {}
+interface ColumnRowProps extends ColumnsBlockRow {}
 
-function ColumnRow(props: ColumnsBlockRow, index: number) {
+function ColumnRow(props: ColumnRowProps, index: number) {
   const {id, title, image, content} = props;
   return (
     <div key={id}>
@@ -39,7 +39,9 @@ function ColumnRow(props: ColumnsBlockRow, index: number) {
   );
 }
 
-export function Columns(props: Props) {
+interface ColumnsProps extends ColumnsBlock {}
+
+export function Columns(props: ColumnsProps) {
   const {headline, rows = []} = props;
   return (
     <BlockWrapper className="mt-24">

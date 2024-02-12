@@ -4,12 +4,12 @@ import {getClient} from "api";
 
 interface Props {
   slug: string;
-  locale: string;
+  locale?: string;
 }
 
 export async function Page(props: Props) {
   const {slug = "home"} = props;
-  const client = getClient(props.locale);
+  const client = getClient(props.locale || "cs-CZ");
   const page = await client.getPage(slug);
 
   if (page?.blocks) {
