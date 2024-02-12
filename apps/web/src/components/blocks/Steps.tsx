@@ -8,7 +8,7 @@ import {StepsBlock, StepsBlockItem} from "types";
 function Step(props: StepsBlockItem, key: number) {
   const {title, content, image} = props;
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" key={key}>
       {image && (
         <div className="flex justify-center pb-6">
           <Image
