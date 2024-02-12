@@ -24,7 +24,7 @@ function TeamMember(props: TeamMemberProps, index: number) {
           />
         ) : (
           <a
-            href="#"
+            href="mailto:hello@fubipod.com"
             className="flex justify-center items-center rounded-full border-4 border-gray-300 text-9xl hover:border-white hover:text-white"
             style={{height: size, width: size}}
           >
