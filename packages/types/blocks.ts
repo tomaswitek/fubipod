@@ -6,6 +6,7 @@ export enum BlockCollection {
   Hero = "block_hero",
   Testimonials = "block_testimonials",
   CallToAction = "block_cta",
+  Columns = "block_columns",
 }
 
 export interface Block {
@@ -15,9 +16,9 @@ export interface Block {
 }
 
 export interface BlockTranslation extends Translation {
-  title?: string;
-  headline?: string;
-  content?: string;
+  title: string;
+  headline: string;
+  content: string;
 }
 
 export interface HeroBlock extends BlockTranslation {
@@ -35,6 +36,21 @@ export interface CallToActionBlock extends BlockTranslation {
   page: Page;
   image: string;
   button_label: string;
+  translations: BlockTranslation[];
+}
+
+export interface ColumnsBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  rows: ColumnsBlockRow[];
+  translations: BlockTranslation[];
+}
+
+export interface ColumnsBlockRow extends BlockTranslation {
+  id: string;
+  image: string;
+  image_position: string;
+  translations: BlockTranslation[];
 }
 
 export interface TestimonialsBlock extends BlockTranslation {

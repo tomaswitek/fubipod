@@ -3,21 +3,11 @@ import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {Image} from "@/components/Image";
 import {Number} from "@/components/Number";
 import {ColumnTitle} from "@/components/ColumnTitle";
+import {ColumnsBlock, ColumnsBlockRow} from "types/blocks";
 
-interface ColumnRowProps {
-  id: string;
-  title: string;
-  image?: string;
-  content: string;
-}
+export interface Props extends ColumnsBlock {}
 
-export interface Props {
-  id: string;
-  headline: string;
-  rows: ColumnRowProps[];
-}
-
-function ColumnRow(props: ColumnRowProps, index: number) {
+function ColumnRow(props: ColumnsBlockRow, index: number) {
   const {id, title, image, content} = props;
   return (
     <div key={id}>

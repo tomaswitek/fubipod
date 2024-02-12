@@ -58,6 +58,9 @@ export const client = {
               "item.testimonials.testimonial.translations.*",
               // cta
               "item.page.*",
+              // columns
+              "item.rows.*",
+              "item.rows.translations.*",
             ],
           },
         ],
