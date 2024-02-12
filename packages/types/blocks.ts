@@ -7,6 +7,7 @@ export enum BlockCollection {
   Testimonials = "block_testimonials",
   CallToAction = "block_cta",
   Columns = "block_columns",
+  Steps = "block_steps",
 }
 
 export interface Block {
@@ -58,4 +59,20 @@ export interface TestimonialsBlock extends BlockTranslation {
   translations: BlockTranslation[];
 }
 
-export type PageBlock = HeroBlock | TestimonialsBlock | CallToActionBlock;
+export interface StepsBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+  steps: StepsBlockItem[];
+}
+
+export interface StepsBlockItem extends StepsBlock {
+  sort: number;
+  image: string;
+}
+
+export type PageBlock =
+  | HeroBlock
+  | TestimonialsBlock
+  | CallToActionBlock
+  | StepsBlock;

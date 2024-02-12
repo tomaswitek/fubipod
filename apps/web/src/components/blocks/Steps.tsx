@@ -3,19 +3,9 @@ import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {Number} from "@/components/Number";
 import {Image} from "@/components/Image";
 import {ColumnTitle} from "@/components/ColumnTitle";
+import {StepsBlock, StepsBlockItem} from "types";
 
-interface StepProps {
-  title: string;
-  content: string;
-  image: string;
-}
-
-interface Props {
-  headline: string;
-  steps: StepProps[];
-}
-
-function Step(props: StepProps, key: number) {
+function Step(props: StepsBlockItem, key: number) {
   const {title, content, image} = props;
   return (
     <div className="flex flex-col">
@@ -43,11 +33,11 @@ function Step(props: StepProps, key: number) {
   );
 }
 
-export function Steps(props: Props) {
+export function Steps(props: StepsBlock) {
   const {headline, steps = []} = props;
 
   return (
-    <BlockWrapper>
+    <BlockWrapper className="pt-12">
       <BlockTitle title={headline} />
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-12 pt-12">
         {steps.map(Step)}

@@ -61,6 +61,9 @@ export const client = {
               // columns
               "item.rows.*",
               "item.rows.translations.*",
+              // steps
+              "item.steps.*",
+              "item.steps.translations.*",
             ],
           },
         ],

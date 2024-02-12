@@ -1,4 +1,4 @@
-import {Block, TestimonialsBlock, ColumnsBlock} from "types/blocks";
+import {Block, TestimonialsBlock, ColumnsBlock, StepsBlock} from "types/blocks";
 
 export function mapBlock(block: Block, locale: string = "cs-CZ") {
   const getTranslation = (translations: any[] = []) => {
@@ -38,6 +38,20 @@ export function mapBlock(block: Block, locale: string = "cs-CZ") {
           return {
             ...row,
             ...getTranslation(row.translations),
+          };
+        }),
+      };
+      break;
+
+    case "block_steps":
+      blockItem = block.item as unknown as StepsBlock;
+
+      item = {
+        ...item,
+        steps: blockItem.steps.map((step: any) => {
+          return {
+            ...step,
+            ...getTranslation(step.translations),
           };
         }),
       };
