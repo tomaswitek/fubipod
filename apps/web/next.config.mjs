@@ -11,8 +11,8 @@ const nextConfig = {
   },
   images: {
     dangerouslyAllowSVG: true,
-    // domains: [process.env.NEXT_API_URL],
-    domains: ["api.example.com"],
+    domains: [process.env.NEXT_API_URL],
+    //domains: ["api.example.com"],
   },
 };
 
