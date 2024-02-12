@@ -1,7 +1,7 @@
 import React from "react";
 import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {clsx} from "clsx";
-import {Button} from "@/components/Button";
+import {LinkButton} from "@/components/LinkButton";
 
 interface RowProps {
   id: string;
@@ -35,9 +35,9 @@ function Row(props: RowProps) {
       </div>
       <BlockContent content={content} />
       <div className="text-center mt-10">
-        <Button href={href} className="px-12">
+        <LinkButton href={href} className="px-12">
           Vice informaci
-        </Button>
+        </LinkButton>
       </div>
     </div>
   );

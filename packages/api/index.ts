@@ -7,8 +7,10 @@ import {
   authentication,
   RestCommand,
   readItem,
+  DirectusClient,
 } from "@directus/sdk";
 import {Schema, Status, Block} from "types";
+import {Form} from "types/forms";
 
 const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
   .with(rest())
@@ -35,7 +37,6 @@ export const client = {
       return navigations[0];
     }
   },
-
   getPage: async (slug: string) => {
     const mapBlocks = (block: Block) => {
       const item = {
@@ -65,7 +66,6 @@ export const client = {
       return page;
     }
   },
-
   getLanguages: async () => {
     return await directusClient.request(readItems("languages"));
   },
@@ -74,36 +74,28 @@ export const client = {
     return await directusClient.request(readSingleton("globals"));
   },
 
-  // getPods: async () => {
-  //   return await directusClient.request(
-  //     readItems("pods", {filter: {status: {_eq: Status.Published}}})
-  //   );
-  // },
-
-  // signUp: async (email: string, password: string) => {
-  //   const command: RestCommand<any, Schema> = () => ({
-  //     path: "/customers/sign-up",
-  //     method: "POST",
-  //     body: JSON.stringify({email, password}),
-  //   });
-  //   return await directusClient.request(command);
-  // },
-
-  // download: async () => {
-  //   const command: RestCommand<any, Schema> = () => ({
-  //     path: "/ninjatrader/install",
-  //     method: "GET",
-  //   });
-  //   return await directusClient.request(command);
-  // },
-
-  // createOrder: async (product: Product) => {
-  //   debugger;
-  //   const price = product.prices[0];
-  //   return await directusClient.request(
-  //     createItem("orders", {product: product.id, price})
-  //   );
-  // },
+  sendNewsletterData: async () => {
+    return await directusClient.request(readSingleton("globals"));
+  },
+  getForm: async (key: string) => {
+    const forms = await directusClient.request(
+      readItems("forms", {
+        filter: {key: {_eq: key}, status: {_eq: Status.Published}},
+        limit: 1,
+      })
+    );
+    if (forms.length > 0) {
+      return forms[0];
+    }
+  },
+  sendForm: async (data: Form["schema"], form?: string) => {
+    return await directusClient.request(
+      createItem("inbox", {
+        data,
+        form,
+      })
+    );
+  },
 };
 
 export function getClient(locale: string) {

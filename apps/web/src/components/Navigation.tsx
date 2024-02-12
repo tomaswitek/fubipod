@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "@/components/Link";
-import {Button} from "@/components/Button";
+import {LinkButton} from "@/components/LinkButton";
 import {NavigationItem} from "types/navigation";
 import {clsx} from "clsx";
 
@@ -16,7 +16,7 @@ export function Navigation(props: Props) {
     <>
       <div className="hidden lg:flex lg:gap-x-6 box-content">
         {items.map((item) => {
-          const Component = item.icon ? Button : Link;
+          const Component = item.icon ? LinkButton : Link;
           const className = clsx(
             "leading-6 text-white hover:text-gray-300 uppercase py-3 text-2xl",
             slug === item.page?.slug && "underline"

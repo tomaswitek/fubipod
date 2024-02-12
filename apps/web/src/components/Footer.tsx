@@ -1,8 +1,8 @@
 import Image from "@/components/Image";
 import {BlockContent} from "@/components/Block";
 import {ColumnTitle} from "@/components/ColumnTitle";
-import {Button} from "@/components/Button";
 import {Link} from "@/components/Link";
+import {NewsletterForm} from "@/components/NewsletterForm";
 import {client} from "api";
 
 const testimonialBlock = {
@@ -28,17 +28,6 @@ const contact = {
   bankAccount: "2953902002/5500",
 };
 
-const footerNavigation = [
-  {
-    href: "/terms",
-    title: "Obchodní podmínky",
-  },
-  {
-    href: "/conds",
-    title: "Zásady ochrany osobních dat",
-  },
-];
-
 interface ContactProps {
   title: string;
   content: React.ReactNode;
@@ -54,7 +43,10 @@ function Contact(props: ContactProps) {
 }
 
 export async function Footer() {
-  const navigation = await client.getNavigation("categories");
+  const categoryNavigation = await client.getNavigation("categories");
+  const global = await client.getGlobalData();
+  const footerNavigation = await client.getNavigation("footer");
+  const newsletterForm = await client.getForm("newsletter");
 
   return (
     <footer aria-labelledby="footer-heading">
@@ -87,7 +79,7 @@ export async function Footer() {
           </div>
           <div className="grid md:grid-cols-2 bg-bg-light md:absolute bottom-0 w-full">
             <div className="grid grid-cols-2 lg:grid-cols-4 mx-auto">
-              {navigation?.items.map((item) => (
+              {categoryNavigation?.items.map((item) => (
                 <a
                   key={item.id}
                   href={item.page?.slug || "#"}
@@ -102,15 +94,13 @@ export async function Footer() {
         <div className="grid lg:grid-cols-3">
           <div className="p-10 border-">
             <Contact
-              title="Kontakt"
-              content={
-                <Link href={`tel:${contact.phone}`}>{contact.phone}</Link>
-              }
+              title="Telefon"
+              content={<Link href={`tel:${global.phone}`}>{global.phone}</Link>}
             />
             <Contact
               title="Email"
               content={
-                <Link href={`mailto:${contact.email}`}>{contact.email}</Link>
+                <Link href={`mailto:${global.email}`}>{global.email}</Link>
               }
             />
           </div>
@@ -119,43 +109,28 @@ export async function Footer() {
               title="Kontakt"
               content={
                 <>
-                  <div>{contact.company}</div>
+                  <div>{global.company}</div>
                   <div>
-                    ICO:{contact.companyId} DIC:{contact.companyVat}
+                    ICO:{global.company_id} DIC:{global.company_vat}
                   </div>
-                  <div>{contact.bankAccount}</div>
-                  <div>{contact.addressCountry}</div>
+                  <div>{global.bank_account}</div>
+                  <div>{global.address_country}</div>
                 </>
               }
             />
           </div>
           <div className="p-10 flex border-l-2 border-bg-light items-center">
-            <form className="flex-1">
-              <div className="bg-primary flex justify-center items-center">
-                <input
-                  className="bg-bg text-gray-300 text-center ml-1 h-8 flex-1"
-                  type="email"
-                  placeholder="@example.com"
-                  required
-                />
-                <Button
-                  className="text-center text-white px-4"
-                  onClick={() => null}
-                >
-                  Odebírat newsletter
-                </Button>
-              </div>
-            </form>
+            {newsletterForm && <NewsletterForm form={newsletterForm} />}
           </div>
         </div>
         <div className="grid lg:grid-cols-3">
           <div className="p-10 border-t-2 border-bg-light" />
-          {footerNavigation.map((item, index) => (
+          {footerNavigation?.items.map((item, index) => (
             <div
               className="p-10 border-l-2 border-t-2 border-bg-light"
               key={index}
             >
-              <Link href={item.href} className="text-gray-300">
+              <Link href={item.page?.slug} className="text-gray-300">
                 {item.title}
               </Link>
             </div>
