@@ -1,5 +1,11 @@
+enum SocialLinkService {
+  facebook = "facebook",
+  instagram = "instagram",
+  linkedin = "linkedin",
+}
+
 interface SocialLink {
-  service: string;
+  service: SocialLinkService;
   url: string;
 }
 

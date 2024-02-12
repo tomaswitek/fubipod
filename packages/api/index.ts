@@ -1,10 +1,12 @@
 import {
   createDirectus,
   rest,
-  readItems,
+  readSingleton,
   createItem,
+  readItems,
   authentication,
   RestCommand,
+  readItem,
 } from "@directus/sdk";
 import {Schema, Status, Block} from "types";
 
@@ -64,14 +66,12 @@ export const client = {
     }
   },
 
+  getLanguages: async () => {
+    return await directusClient.request(readItems("languages"));
+  },
+
   getGlobalData: async () => {
-    return await directusClient.request(
-      readItems("globals", {
-        // filter: {status: {_eq: Status.Published}},
-        // fields: ["*", {translations: ["*"]}],
-        // fields: ["*", "translations.*"],
-      })
-    );
+    return await directusClient.request(readSingleton("globals"));
   },
 
   // getPods: async () => {
