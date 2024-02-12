@@ -1,17 +1,8 @@
 import React from "react";
 import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import Image from "@/components/Image";
-
-interface Props {
-  headline: string;
-  members: TeamMemberProps[];
-}
-
-interface TeamMemberProps {
-  name: string;
-  job_title: string;
-  image: string;
-}
+import {TeamBlock, TeamMember as TeamMemberProps} from "types";
+import {client} from "api";
 
 function TeamMember(props: TeamMemberProps, index: number) {
   const {name, job_title, image} = props;
@@ -47,8 +38,9 @@ function TeamMember(props: TeamMemberProps, index: number) {
   );
 }
 
-export function Team(props: Props) {
-  const {headline, members = []} = props;
+export async function Team(props: TeamBlock) {
+  const {headline} = props;
+  const members = await client.getTeamMembers();
 
   return (
     <BlockWrapper>

@@ -1,13 +1,4 @@
-enum SocialLinkService {
-  facebook = "facebook",
-  instagram = "instagram",
-  linkedin = "linkedin",
-}
-
-interface SocialLink {
-  service: SocialLinkService;
-  url: string;
-}
+import {SocialLink} from "./common";
 
 export interface GlobalData {
   social_links: SocialLink[];

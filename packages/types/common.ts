@@ -14,3 +14,14 @@ export interface Translation {
   id: string;
   languages_code: string;
 }
+
+enum SocialLinkService {
+  facebook = "facebook",
+  instagram = "instagram",
+  linkedin = "linkedin",
+}
+
+export interface SocialLink {
+  service: SocialLinkService;
+  url: string;
+}

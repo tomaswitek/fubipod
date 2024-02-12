@@ -7,12 +7,6 @@ interface Props {
   locale: string;
 }
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   console.log("getStaticPropssssssssss", context);
-//   const {locale} = context;
-//   return {props: {locale}};
-// };
-
 export async function Page(props: Props) {
   const {slug = "home"} = props;
   const client = getClient(props.locale);

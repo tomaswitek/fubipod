@@ -8,6 +8,7 @@ export enum BlockCollection {
   CallToAction = "block_cta",
   Columns = "block_columns",
   Steps = "block_steps",
+  Team = "block_team",
 }
 
 export interface Block {
@@ -69,6 +70,12 @@ export interface StepsBlock extends BlockTranslation {
 export interface StepsBlockItem extends StepsBlock {
   sort: number;
   image: string;
+}
+
+export interface TeamBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
 }
 
 export type PageBlock =

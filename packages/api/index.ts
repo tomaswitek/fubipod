@@ -38,6 +38,7 @@ export const client = {
       return navigations[0];
     }
   },
+
   getPage: async (slug: string) => {
     const pages = await directusClient.request(
       readItems("pages", {
@@ -75,8 +76,17 @@ export const client = {
       return page;
     }
   },
+
   getLanguages: async () => {
     return await directusClient.request(readItems("languages"));
+  },
+
+  getTeamMembers: async () => {
+    return await directusClient.request(
+      readItems("team", {
+        filter: {status: {_eq: Status.Published}},
+      })
+    );
   },
 
   getGlobalData: async () => {
@@ -86,6 +96,7 @@ export const client = {
   sendNewsletterData: async () => {
     return await directusClient.request(readSingleton("globals"));
   },
+
   getForm: async (key: string) => {
     const forms = await directusClient.request(
       readItems("forms", {
@@ -97,6 +108,7 @@ export const client = {
       return forms[0];
     }
   },
+
   sendForm: async (data: Form["schema"], form?: string) => {
     return await directusClient.request(
       createItem("inbox", {

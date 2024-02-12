@@ -4,6 +4,7 @@ import {Page} from "./pages";
 import {Language} from "./languages";
 import {Inbox} from "./inbox";
 import {Form} from "./forms";
+import {TeamMember} from "./team";
 
 export interface Schema {
   pages: Page[];
@@ -12,4 +13,5 @@ export interface Schema {
   globals: GlobalData;
   inbox: Inbox[];
   forms: Form[];
+  team: TeamMember[];
 }
