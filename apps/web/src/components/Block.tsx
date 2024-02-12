@@ -1,10 +1,11 @@
 import React, {PropsWithChildren} from "react";
 import {clsx} from "clsx";
-import {Hero} from "./blocks";
+import {Hero, Testimonials} from "./blocks";
 import {Block, BlockCollection} from "types";
 
 const BLOCK_COMPONENTS = {
   [BlockCollection.Hero]: Hero,
+  [BlockCollection.Testimonials]: Testimonials,
 };
 
 interface BlockTitleProps {

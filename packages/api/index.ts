@@ -9,8 +9,9 @@ import {
   readItem,
   DirectusClient,
 } from "@directus/sdk";
-import {Schema, Status, Block} from "types";
+import {Schema, Status} from "types";
 import {Form} from "types/forms";
+import {mapBlock} from "./mapBlock";
 
 const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
   .with(rest())
@@ -38,16 +39,6 @@ export const client = {
     }
   },
   getPage: async (slug: string) => {
-    const mapBlocks = (block: Block) => {
-      const item = {
-        ...block.item,
-        ...block.item.translations.find(
-          (t) => t.languages_code === client.locale
-        ),
-      };
-      return {...block, item};
-    };
-
     const pages = await directusClient.request(
       readItems("pages", {
         filter: {slug: {_eq: slug}, status: {_eq: Status.Published}},
@@ -55,14 +46,24 @@ export const client = {
         fields: [
           "*",
           {
-            blocks: ["*", "item.*", "item.translations.*", "seo.*"],
+            blocks: [
+              // common
+              "*",
+              "item.*",
+              "item.translations.*",
+              "seo.*",
+              // testimonials
+              "item.testimonials.*",
+              "item.testimonials.testimonial.*",
+              "item.testimonials.testimonial.translations.*",
+            ],
           },
         ],
       })
     );
     if (pages.length > 0) {
       const page = pages[0];
-      page.blocks = page.blocks.map(mapBlocks);
+      page.blocks = page.blocks.map((block) => mapBlock(block, client.locale));
       return page;
     }
   },

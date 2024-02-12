@@ -2,8 +2,9 @@ import React from "react";
 import {Image, imageSrc} from "@/components/Image";
 import {HeroBlock} from "types/blocks";
 import {client} from "api";
-interface Props extends HeroBlock {}
 import {Link} from "@/components/Link";
+
+interface Props extends HeroBlock {}
 
 export async function Hero(props: Props) {
   const {headline, image} = props;

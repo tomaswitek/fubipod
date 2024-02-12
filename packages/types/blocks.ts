@@ -1,7 +1,9 @@
 import {Translation} from "./common";
+import {Testimonial} from "./testimonials";
 
 export enum BlockCollection {
   Hero = "block_hero",
+  Testimonials = "block_testimonials",
   //CallToAction = "block_cta",
 }
 
@@ -11,16 +13,22 @@ export interface Block {
   item: PageBlock;
 }
 
-export interface HeroBlock extends HeroBlockTranslation {
+export interface BlockTranslation extends Translation {
+  title?: string;
+  headline?: string;
+  content?: string;
+}
+
+export interface HeroBlock extends BlockTranslation {
   id: string;
   title: string;
   image: string;
-  translations: HeroBlockTranslation[];
+  translations: BlockTranslation[];
 }
 
-interface HeroBlockTranslation extends Translation {
-  headline: string;
-  content: string;
+export interface TestimonialsBlock extends BlockTranslation {
+  testimonials: Testimonial[];
+  translations: BlockTranslation[];
 }
 
-export type PageBlock = HeroBlock; // | ColumnsBlock | StepsBlock;
+export type PageBlock = HeroBlock | TestimonialsBlock;
