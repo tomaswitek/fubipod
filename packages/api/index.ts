@@ -56,6 +56,8 @@ export const client = {
               "item.testimonials.*",
               "item.testimonials.testimonial.*",
               "item.testimonials.testimonial.translations.*",
+              // cta
+              "item.page.*",
             ],
           },
         ],
