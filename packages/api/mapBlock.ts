@@ -26,6 +26,8 @@ export const BLOCK_FIELDS = [
   "item.steps.translations.*",
   // gallery
   "item.gallery_items.*",
+  // pricing
+  "item.rows.page.*",
 ];
 
 export function mapBlock(block: Block, locale: string = "cs-CZ") {

@@ -16,7 +16,10 @@ function Row(props: PricingRowProps) {
     content,
     page,
     url,
+    button_label,
   } = props;
+
+  const href = page?.slug || url || "#";
 
   return (
     <div key={id} className="border-2 p-10 text-gray-300">
@@ -29,8 +32,8 @@ function Row(props: PricingRowProps) {
       </div>
       <BlockContent content={content} />
       <div className="text-center mt-10">
-        <LinkButton href={page?.slug || url || "#"} className="px-12">
-          Vice informaci
+        <LinkButton href={href} className="px-12">
+          {button_label}
         </LinkButton>
       </div>
     </div>

@@ -25,6 +25,7 @@ export interface BlockTranslation extends Translation {
   title: string;
   headline: string;
   content: string;
+  button_label: string;
 }
 
 export interface HeroBlock extends BlockTranslation {
@@ -39,7 +40,7 @@ export interface CallToActionBlock extends BlockTranslation {
   title: string;
   headline: string;
   content: string;
-  page: Page;
+  page?: Page;
   image: string;
   button_label: string;
   translations: BlockTranslation[];
@@ -127,13 +128,16 @@ export interface ProductBlock extends BlockTranslation {
   id: string;
   title: string;
   translations: BlockTranslation[];
-  product: string;
+  rows: ProductBlockRow[];
 }
 
-interface ProductBlockRow extends BlockTranslation {
+export interface ProductBlockRow extends BlockTranslation {
   id: string;
   title: string;
   translations: BlockTranslation[];
+  image?: Page;
+  page?: Page;
+  column: number;
 }
 
 export type PageBlock =

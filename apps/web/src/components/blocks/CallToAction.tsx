@@ -23,7 +23,7 @@ export function CallToAction(props: CallToActionProps) {
         </div>
         <div className="flex lg:justify-end overflow-x-clip">
           <Link
-            href={page.slug}
+            href={page?.slug || "#"}
             className="group border-2 border-transparent w-full"
           >
             <div className="relative w-full h-64">
