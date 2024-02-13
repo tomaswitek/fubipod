@@ -39,6 +39,14 @@ export const client = {
     }
   },
 
+  getPages: async () => {
+    return await directusClient.request(
+      readItems("pages", {
+        fields: ["*"],
+      })
+    );
+  },
+
   getPage: async (slug: string) => {
     const pages = await directusClient.request(
       readItems("pages", {
