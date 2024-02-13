@@ -1,35 +1,17 @@
 import React, {PropsWithChildren} from "react";
 import {clsx} from "clsx";
-import {Block, BlockCollection} from "types";
-import {
-  Hero,
-  Testimonials,
-  CallToAction,
-  Columns,
-  Steps,
-  Team,
-  Pricing,
-  Richtext,
-} from "./blocks";
-
-const BLOCK_COMPONENTS = {
-  [BlockCollection.Hero]: Hero,
-  [BlockCollection.Testimonials]: Testimonials,
-  [BlockCollection.CallToAction]: CallToAction,
-  [BlockCollection.Columns]: Columns,
-  [BlockCollection.Steps]: Steps,
-  [BlockCollection.Team]: Team,
-  [BlockCollection.Pricing]: Pricing,
-  [BlockCollection.Richtext]: Richtext,
-};
+import {Block} from "types";
+import {BLOCK_COMPONENTS} from "./blocks";
 
 interface BlockTitleProps {
-  title: string;
+  title?: string;
   className?: string;
 }
 
 export function BlockTitle(props: BlockTitleProps) {
   const {title} = props;
+
+  if (!title) return null;
 
   const className = clsx(
     "text-primary text-5xl mb-6 tracking-widest",

@@ -11,6 +11,8 @@ export enum BlockCollection {
   Team = "block_team",
   Pricing = "block_pricing",
   Richtext = "block_richtext",
+  Product = "block_product",
+  Gallery = "block_gallery",
 }
 
 export interface Block {
@@ -108,10 +110,38 @@ export interface RichtextBlock extends BlockTranslation {
   translations: BlockTranslation[];
 }
 
+export interface GalleryBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+  gallery_items: GalleryBlockFile[];
+}
+
+interface GalleryBlockFile {
+  id: string;
+  sort: number;
+  directus_files_id: string;
+}
+
+export interface ProductBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+  product: string;
+}
+
+interface ProductBlockRow extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+}
+
 export type PageBlock =
   | HeroBlock
   | TestimonialsBlock
   | CallToActionBlock
   | StepsBlock
   | PricingBlock
-  | RichtextBlock;
+  | RichtextBlock
+  | GalleryBlock
+  | ProductBlock;
