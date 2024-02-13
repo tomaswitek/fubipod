@@ -99,7 +99,7 @@ export async function Header(props: Props) {
         </div>
       </div>
       <nav
-        className="flex items-center justify-between p-6 lg:px-8 bg-bg opacity-90"
+        className="flex items-center justify-between p-6 lg:px-8 bg-bg opacity-90 border-b border-primary"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
