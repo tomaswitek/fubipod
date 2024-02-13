@@ -12,7 +12,9 @@ interface Props {
 export function LanguageNavigation(props: Props) {
   const {languages = []} = props;
   const pathname = usePathname();
-  const {locale = "cs-CZ"} = useParams();
+  /// TODO: fix
+  //const {locale = "cs-CZ"} = useParams();
+  const locale = "cs-CZ";
 
   return (
     <>
@@ -20,7 +22,7 @@ export function LanguageNavigation(props: Props) {
         <span key={i}>
           {i > 0 && " / "}
           <Link
-            href={pathname}
+            href={pathname!}
             locale={l.code}
             key={i}
             className={clsx(
