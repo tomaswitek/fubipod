@@ -8,7 +8,7 @@ const app = express();
 
 const options: Options = {
   router: {
-    "api.example.com": "http://127.0.0.1:8055",
+    "api.example.com": "https://directus-production-6c52.up.railway.app",
     "example.com": "http://127.0.0.1:3000",
   },
   target: "http://127.0.0.1:3000",
