@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Directus admin",
   "dependencies": {
-    "directus": "^10.7.2",
+    "directus": "^10.9.0",
     "pg": "^8.11.3",
     "directus-extension-endpoint-example": "workspace:*",
     "directus-extension-interface-example": "workspace:*",
