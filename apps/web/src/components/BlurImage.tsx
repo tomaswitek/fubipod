@@ -15,7 +15,7 @@ export function BlurImage({src}: BlurImageProps) {
 
   return (
     <a href={imageSrc(src)} target="_blank" className="group">
-      <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+      <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 border-4 border-bg-light overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
         <Image
           alt=""
           src={src}
