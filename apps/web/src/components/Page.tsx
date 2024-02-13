@@ -2,12 +2,12 @@ import React from "react";
 import {Block} from "@/components/Block";
 import {getClient} from "api";
 
-interface Props {
+interface PageProps {
   slug: string;
   locale?: string;
 }
 
-export async function Page(props: Props) {
+export async function Page(props: PageProps) {
   const {slug = "home"} = props;
   const client = getClient(props.locale || "cs-CZ");
   const page = await client.getPage(slug);

@@ -44,8 +44,6 @@ export function Pricing(props: PricingBlockProps) {
 
   const gridClassName = clsx("grid gap-32 mt-16", `grid-cols-${rows.length}`);
 
-  console.log(props);
-
   return (
     <BlockWrapper>
       <BlockTitle title={headline} />
