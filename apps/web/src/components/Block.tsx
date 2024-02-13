@@ -9,6 +9,7 @@ import {
   Steps,
   Team,
   Pricing,
+  Richtext,
 } from "./blocks";
 
 const BLOCK_COMPONENTS = {
@@ -19,6 +20,7 @@ const BLOCK_COMPONENTS = {
   [BlockCollection.Steps]: Steps,
   [BlockCollection.Team]: Team,
   [BlockCollection.Pricing]: Pricing,
+  [BlockCollection.Richtext]: Richtext,
 };
 
 interface BlockTitleProps {

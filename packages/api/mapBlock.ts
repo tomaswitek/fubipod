@@ -9,6 +9,8 @@ export function mapBlock(block: Block, locale: string = "cs-CZ") {
     return block;
   }
 
+  console.log("block", block);
+
   let item = {
     ...block.item,
     ...getTranslation(block.item.translations),

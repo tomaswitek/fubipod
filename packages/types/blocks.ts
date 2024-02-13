@@ -10,6 +10,7 @@ export enum BlockCollection {
   Steps = "block_steps",
   Team = "block_team",
   Pricing = "block_pricing",
+  Richtext = "block_richtext",
 }
 
 export interface Block {
@@ -101,9 +102,16 @@ interface PricingBlockRowTranslation extends BlockTranslation {
   button_label: string;
 }
 
+export interface RichtextBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+}
+
 export type PageBlock =
   | HeroBlock
   | TestimonialsBlock
   | CallToActionBlock
   | StepsBlock
-  | PricingBlock;
+  | PricingBlock
+  | RichtextBlock;
