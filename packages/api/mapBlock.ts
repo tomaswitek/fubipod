@@ -5,6 +5,10 @@ export function mapBlock(block: Block, locale: string = "cs-CZ") {
     return translations.find((t) => t.languages_code === locale);
   };
 
+  if (!block.item) {
+    return block;
+  }
+
   let item = {
     ...block.item,
     ...getTranslation(block.item.translations),
@@ -30,6 +34,7 @@ export function mapBlock(block: Block, locale: string = "cs-CZ") {
       break;
 
     case "block_columns":
+    case "block_pricing":
       blockItem = block.item as unknown as ColumnsBlock;
 
       item = {

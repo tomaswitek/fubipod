@@ -9,6 +9,7 @@ export enum BlockCollection {
   Columns = "block_columns",
   Steps = "block_steps",
   Team = "block_team",
+  Pricing = "block_pricing",
 }
 
 export interface Block {
@@ -78,8 +79,31 @@ export interface TeamBlock extends BlockTranslation {
   translations: BlockTranslation[];
 }
 
+export interface PricingBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+  rows: PricingBlockRow[];
+}
+
+export interface PricingBlockRow extends PricingBlockRowTranslation {
+  id: string;
+  title: string;
+  url: string;
+  page: Page;
+  translations: PricingBlockRowTranslation[];
+}
+
+interface PricingBlockRowTranslation extends BlockTranslation {
+  price: number;
+  price_currency: string;
+  price_description: string;
+  button_label: string;
+}
+
 export type PageBlock =
   | HeroBlock
   | TestimonialsBlock
   | CallToActionBlock
-  | StepsBlock;
+  | StepsBlock
+  | PricingBlock;

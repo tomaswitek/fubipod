@@ -2,27 +2,21 @@ import React from "react";
 import {BlockWrapper, BlockTitle, BlockContent} from "@/components/Block";
 import {clsx} from "clsx";
 import {LinkButton} from "@/components/LinkButton";
+import {PricingBlock, PricingBlockRow} from "types/blocks";
 
-interface RowProps {
-  id: string;
-  title: string;
-  price: number;
-  price_currency: string;
-  price_description: string;
-  content: string;
-  href: string;
-}
+interface PricingRowProps extends PricingBlockRow {}
 
-interface Props {
-  id: string;
-  headline: string;
-  content: string;
-  rows: RowProps[];
-}
-
-function Row(props: RowProps) {
-  const {id, title, price, price_currency, price_description, content, href} =
-    props;
+function Row(props: PricingRowProps) {
+  const {
+    id,
+    title,
+    price,
+    price_currency,
+    price_description,
+    content,
+    page,
+    url,
+  } = props;
 
   return (
     <div key={id} className="border-2 p-10 text-gray-300">
@@ -35,7 +29,7 @@ function Row(props: RowProps) {
       </div>
       <BlockContent content={content} />
       <div className="text-center mt-10">
-        <LinkButton href={href} className="px-12">
+        <LinkButton href={page?.slug || url || "#"} className="px-12">
           Vice informaci
         </LinkButton>
       </div>
@@ -43,10 +37,14 @@ function Row(props: RowProps) {
   );
 }
 
-export function Pricing(props: Props) {
+interface PricingBlockProps extends PricingBlock {}
+
+export function Pricing(props: PricingBlockProps) {
   const {headline, content, rows = []} = props;
 
   const gridClassName = clsx("grid gap-32 mt-16", `grid-cols-${rows.length}`);
+
+  console.log(props);
 
   return (
     <BlockWrapper>
