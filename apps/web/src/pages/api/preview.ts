@@ -1,4 +1,3 @@
-// simple example for testing it manually from your browser.
 import {NextApiHandler} from "next";
 
 const handler: NextApiHandler = (req, res) => {
