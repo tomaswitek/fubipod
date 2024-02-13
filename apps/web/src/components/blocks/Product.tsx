@@ -37,8 +37,6 @@ export function Product(props: ProductProps) {
   const columns = groupBy((row) => row.column.toString(), rows);
   const columnArray = Object.keys(columns);
 
-  console.log(columnArray);
-
   return (
     <BlockWrapper>
       {headline && <BlockTitle title={headline} />}
