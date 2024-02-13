@@ -19,7 +19,7 @@ export function Navigation(props: Props) {
           const Component = item.icon ? LinkButton : Link;
           const className = clsx(
             "leading-6 text-white hover:text-gray-300 uppercase py-3 text-2xl",
-            slug === item.page?.slug && "underline"
+            slug.includes(item.page?.slug) && "underline"
           );
           return (
             <Component

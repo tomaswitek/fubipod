@@ -4,6 +4,7 @@ import NextLink, {LinkProps} from "next/link";
 interface Props extends LinkProps {
   children?: React.ReactNode;
   className?: string;
+  target?: string;
 }
 
 export function Link(props: Props) {

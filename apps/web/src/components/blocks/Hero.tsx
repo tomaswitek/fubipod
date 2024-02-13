@@ -3,6 +3,7 @@ import {Image, imageSrc} from "@/components/Image";
 import {HeroBlock} from "types/blocks";
 import {client} from "api";
 import {Link} from "@/components/Link";
+import {clsx} from "clsx";
 
 interface HeroProps extends HeroBlock {}
 
@@ -25,7 +26,7 @@ export async function Hero(props: HeroProps) {
         </h2>
         <ul
           role="list"
-          className="mx-auto mt-5 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-8"
+          className={`mx-auto mt-5 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-8 lg:grid-cols-${navigation?.items.length}`}
         >
           {navigation?.items.map((item, index) => (
             <li

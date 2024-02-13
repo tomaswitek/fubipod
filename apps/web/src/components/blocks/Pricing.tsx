@@ -16,7 +16,10 @@ function Row(props: PricingRowProps) {
     content,
     page,
     url,
+    button_label,
   } = props;
+
+  const href = page?.slug || url || "#";
 
   return (
     <div key={id} className="border-2 p-10 text-gray-300">
@@ -29,8 +32,8 @@ function Row(props: PricingRowProps) {
       </div>
       <BlockContent content={content} />
       <div className="text-center mt-10">
-        <LinkButton href={page?.slug || url || "#"} className="px-12">
-          Vice informaci
+        <LinkButton href={href} className="px-12">
+          {button_label}
         </LinkButton>
       </div>
     </div>
@@ -42,12 +45,15 @@ interface PricingBlockProps extends PricingBlock {}
 export function Pricing(props: PricingBlockProps) {
   const {headline, content, rows = []} = props;
 
-  const gridClassName = clsx("grid gap-32 mt-16", `grid-cols-${rows.length}`);
+  const gridClassName = clsx(
+    "grid grid-cols-1 gap-12 mt-16",
+    `lg:grid-cols-${rows.length}`
+  );
 
   return (
     <BlockWrapper>
       <BlockTitle title={headline} />
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-7xl">
         <BlockContent content={content} />
         <div className={gridClassName}>{rows.map(Row)}</div>
       </div>

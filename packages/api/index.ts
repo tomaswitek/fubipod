@@ -5,13 +5,10 @@ import {
   createItem,
   readItems,
   authentication,
-  RestCommand,
-  readItem,
-  DirectusClient,
 } from "@directus/sdk";
 import {Schema, Status} from "types";
 import {Form} from "types/forms";
-import {mapBlock} from "./mapBlock";
+import {mapBlock, BLOCK_FIELDS} from "./mapBlock";
 
 const directusClient = createDirectus<Schema>(process.env.NEXT_PUBLIC_API_URL!)
   .with(rest())
@@ -35,7 +32,14 @@ export const client = {
       })
     );
     if (navigations.length > 0) {
-      return navigations[0];
+      const nav = navigations[0];
+      return {
+        ...nav,
+        items: nav.items?.map((item) => ({
+          ...item,
+          ...item.translations.find((t) => t.languages_code === client.locale),
+        })),
+      };
     }
   },
 
@@ -55,25 +59,7 @@ export const client = {
         fields: [
           "*",
           {
-            blocks: [
-              // common
-              "*",
-              "item.*",
-              "item.translations.*",
-              "seo.*",
-              // testimonials
-              "item.testimonials.*",
-              "item.testimonials.testimonial.*",
-              "item.testimonials.testimonial.translations.*",
-              // cta
-              "item.page.*",
-              // columns
-              "item.rows.*",
-              "item.rows.translations.*",
-              // steps
-              "item.steps.*",
-              "item.steps.translations.*",
-            ],
+            blocks: BLOCK_FIELDS,
           },
         ],
       })

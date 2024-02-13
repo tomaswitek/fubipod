@@ -13,7 +13,7 @@ export enum ButtonVariant {
 export interface CallToActionProps extends CallToActionBlock {}
 
 export function CallToAction(props: CallToActionProps) {
-  const {headline, content, image, button_label, page} = props;
+  const {headline, content, image, button_label, page, url} = props;
   return (
     <BlockWrapper>
       <div className="grid grid-cols-1 gap-x-9 gap-y-6 lg:grid-cols-2">
@@ -23,8 +23,9 @@ export function CallToAction(props: CallToActionProps) {
         </div>
         <div className="flex lg:justify-end overflow-x-clip">
           <Link
-            href={page.slug}
+            href={url || page?.slug || "#"}
             className="group border-2 border-transparent w-full"
+            target={url ? "_blank" : undefined}
           >
             <div className="relative w-full h-64">
               <div
