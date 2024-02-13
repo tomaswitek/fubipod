@@ -42,7 +42,10 @@ interface PricingBlockProps extends PricingBlock {}
 export function Pricing(props: PricingBlockProps) {
   const {headline, content, rows = []} = props;
 
-  const gridClassName = clsx("grid gap-32 mt-16", `grid-cols-${rows.length}`);
+  const gridClassName = clsx(
+    "grid grid-cols-1 gap-32 mt-16",
+    `lg:grid-cols-${rows.length}`
+  );
 
   return (
     <BlockWrapper>
