@@ -46,14 +46,14 @@ export function Pricing(props: PricingBlockProps) {
   const {headline, content, rows = []} = props;
 
   const gridClassName = clsx(
-    "grid grid-cols-1 gap-32 mt-16",
+    "grid grid-cols-1 gap-12 mt-16",
     `lg:grid-cols-${rows.length}`
   );
 
   return (
     <BlockWrapper>
       <BlockTitle title={headline} />
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-7xl">
         <BlockContent content={content} />
         <div className={gridClassName}>{rows.map(Row)}</div>
       </div>

@@ -41,6 +41,7 @@ export interface CallToActionBlock extends BlockTranslation {
   headline: string;
   content: string;
   page?: Page;
+  url?: string;
   image: string;
   button_label: string;
   translations: BlockTranslation[];
