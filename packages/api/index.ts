@@ -58,6 +58,7 @@ export const client = {
         limit: 1,
         fields: [
           "*",
+          "seo.*",
           {
             blocks: BLOCK_FIELDS,
           },
