@@ -15,7 +15,7 @@ export function LinkButton(props: Props) {
   );
 
   return (
-    <Link className={className} href={href}>
+    <Link {...props} className={className} href={href}>
       {children}
     </Link>
   );

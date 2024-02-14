@@ -14,6 +14,12 @@ export interface NavigationItemTranslation extends Translation {
   label: string;
 }
 
+enum NavigationItemType {
+  Page = "page",
+  URL = "url",
+  File = "file",
+}
+
 export interface NavigationItem extends NavigationItemTranslation {
   id: string;
   sort: number;
@@ -24,4 +30,8 @@ export interface NavigationItem extends NavigationItemTranslation {
   translations: NavigationItemTranslation[];
   image: string;
   icon: string;
+  type: NavigationItemType;
+  open_in_new_tab: boolean;
+  file: string;
+  url: string;
 }
