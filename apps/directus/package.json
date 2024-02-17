@@ -17,7 +17,7 @@
     "start": "directus start",
     "start:railway": "directus start",
     "init-config": "cp -n example.env .env || true",
-    "dev": "NODE_OPTIONS='--inspect' NODE_TLS_REJECT_UNAUTHORIZED='0' directus start",
+    "devv": "NODE_OPTIONS='--inspect' NODE_TLS_REJECT_UNAUTHORIZED='0' directus start",
     "build": "directus bootstrap && directus database migrate:latest",
     "build:local": "pnpm init-config && pnpm build",
     "build:railway": "pnpm build",
