@@ -137,7 +137,7 @@ export interface ProductBlockRow extends BlockTranslation {
   id: string;
   title: string;
   translations: BlockTranslation[];
-  image?: Page;
+  image?: string;
   page?: Page;
   column: number;
 }
