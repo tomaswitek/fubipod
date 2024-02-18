@@ -97,6 +97,7 @@ export interface PricingBlockRow extends PricingBlockRowTranslation {
   url: string;
   page: Page;
   translations: PricingBlockRowTranslation[];
+  image: string;
 }
 
 interface PricingBlockRowTranslation extends BlockTranslation {
