@@ -8,7 +8,7 @@ import {TestimonialsBlock} from "types";
 interface TestimonialsProps extends TestimonialsBlock {}
 
 export async function Testimonials(props: TestimonialsProps) {
-  const {title} = props;
+  const {title, image} = props;
   const categoryNavigation = await client.getNavigation("categories");
 
   // TODO: make slider
@@ -18,13 +18,7 @@ export async function Testimonials(props: TestimonialsProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:pt-32">
-      <div
-        className="relative"
-        style={{
-          background:
-            'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg") no-repeat bottom',
-        }}
-      >
+      <div className="relative">
         <div className="grid md:grid-cols-2 pt-28 pb-9">
           <div>Play</div>
           <div className="flex justify-center">
@@ -49,6 +43,14 @@ export async function Testimonials(props: TestimonialsProps) {
             ))}
           </div>
         </div>
+        {image && (
+          <Image
+            fill
+            src={image}
+            alt={title}
+            className="w-full object-cover mb-10 absolute top-0 left-0 h-full -z-10"
+          />
+        )}
       </div>
     </div>
   );

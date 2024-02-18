@@ -62,6 +62,7 @@ export interface ColumnsBlockRow extends BlockTranslation {
 }
 
 export interface TestimonialsBlock extends BlockTranslation {
+  image?: string;
   testimonials: Testimonial[];
   translations: BlockTranslation[];
 }
