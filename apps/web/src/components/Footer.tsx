@@ -17,7 +17,6 @@ function Contact(props: ContactProps) {
 }
 
 export async function Footer() {
-  const categoryNavigation = await client.getNavigation("categories");
   const global = await client.getGlobalData();
   const footerNavigation = await client.getNavigation("footer");
   const newsletterForm = await client.getForm("newsletter");
