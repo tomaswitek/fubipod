@@ -18,6 +18,10 @@ export const client = {
   ...directusClient,
   locale: "cs-CZ",
 
+  getTranslation: (translations: any[] = []) => {
+    return translations.find((t) => t.languages_code === client.locale);
+  },
+
   getNavigation: async (id: string) => {
     const navigations = await directusClient.request(
       readItems("navigation", {
@@ -59,6 +63,7 @@ export const client = {
         fields: [
           "*",
           "seo.*",
+          "seo.translations.*",
           {
             blocks: BLOCK_FIELDS,
           },
@@ -68,6 +73,13 @@ export const client = {
     if (pages.length > 0) {
       const page = pages[0];
       page.blocks = page.blocks.map((block) => mapBlock(block, client.locale));
+
+      if (page.seo) {
+        page.seo = {
+          ...page.seo,
+          ...client.getTranslation(page.seo.translations),
+        };
+      }
       return page;
     }
   },

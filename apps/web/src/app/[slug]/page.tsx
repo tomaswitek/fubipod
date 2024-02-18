@@ -2,7 +2,8 @@ import {Page} from "@/components/Page";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {client} from "api";
-import {ResolvingMetadata, Metadata} from "next";
+import {Metadata} from "next";
+import {generateMetadataFromSlug} from "@/lib";
 
 export async function generateStaticParams() {
   const pages = await client.getPages();
@@ -14,23 +15,9 @@ type Props = {
   searchParams: {[key: string]: string | string[] | undefined};
 };
 
-export async function generateMetadata(
-  {params, searchParams}: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {slug} = params;
-
-  const page = await client.getPage(slug);
-
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
-  return {
-    title: page?.title,
-    openGraph: {
-      images: ["/some-specific-page-image.jpg", ...previousImages],
-    },
-  };
+  return generateMetadataFromSlug(slug);
 }
 
 export default function SlugPage(props: {params: {slug: string}}) {
