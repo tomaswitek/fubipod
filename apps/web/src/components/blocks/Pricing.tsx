@@ -4,6 +4,7 @@ import {clsx} from "clsx";
 import {LinkButton} from "@/components/LinkButton";
 import {PricingBlock, PricingBlockRow} from "types/blocks";
 import {Image} from "@/components/Image";
+import Link from "../Link";
 
 interface PricingRowProps extends PricingBlockRow {}
 
@@ -26,14 +27,16 @@ function Row(props: PricingRowProps) {
   return (
     <div key={id} className="border-2 p-10 text-gray-300 relative">
       <h4 className="text-4xl text-center mb-10">{title}</h4>
-      {image && (
+      {image && page && (
         <div className="relative h-60 border-2 border-primary mb-10">
-          <Image
-            fill
-            src={image}
-            alt={title}
-            className="w-full h-64 object-cover mb-10"
-          />
+          <Link href={page.slug}>
+            <Image
+              fill
+              src={image}
+              alt={title}
+              className="w-full h-64 object-cover mb-10"
+            />
+          </Link>
         </div>
       )}
       <div className="text-xl mb-2">
