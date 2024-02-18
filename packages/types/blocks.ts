@@ -1,4 +1,5 @@
 import {Translation} from "./common";
+import {Form} from "./forms";
 import {Page} from "./pages";
 import {Testimonial} from "./testimonials";
 
@@ -13,6 +14,7 @@ export enum BlockCollection {
   Richtext = "block_richtext",
   Product = "block_product",
   Gallery = "block_gallery",
+  Form = "block_form",
 }
 
 export interface Block {
@@ -143,6 +145,13 @@ export interface ProductBlockRow extends BlockTranslation {
   column: number;
 }
 
+export interface FormBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+  form: Form;
+}
+
 export type PageBlock =
   | HeroBlock
   | TestimonialsBlock
@@ -151,4 +160,5 @@ export type PageBlock =
   | PricingBlock
   | RichtextBlock
   | GalleryBlock
-  | ProductBlock;
+  | ProductBlock
+  | FormBlock;

@@ -8,6 +8,8 @@ import {Testimonials} from "./Testimonials";
 import {Richtext} from "./Richtext";
 import {Gallery} from "./Gallery";
 import {Product} from "./Product";
+import {Form} from "./Form";
+
 import {BlockCollection} from "types";
 
 export const BLOCK_COMPONENTS = {
@@ -21,4 +23,5 @@ export const BLOCK_COMPONENTS = {
   [BlockCollection.Richtext]: Richtext,
   [BlockCollection.Gallery]: Gallery,
   [BlockCollection.Product]: Product,
+  [BlockCollection.Form]: Form,
 };
