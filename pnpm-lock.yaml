@@ -69,6 +69,9 @@ importers:
       '@heroicons/react':
         specifier: ^2.1.1
         version: 2.1.1(react@18.2.0)
+      '@porscheofficial/cookie-consent-banner-react':
+        specifier: ^4.0.1
+        version: 4.0.1(react-dom@18.2.0)(react@18.2.0)
       api:
         specifier: workspace:*
         version: link:../../packages/api
@@ -3645,6 +3648,23 @@ packages:
       tslib: 2.6.2
     dev: true
 
+  /@porscheofficial/cookie-consent-banner-react@4.0.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-m+7KonC/csgy7LHUDYOze0saJJgTLUW1kTERnio7M0h+LaN+TSG1pzNr9QMenWv32qvU3kXHVWUB3yAKbWyhdw==}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      '@porscheofficial/cookie-consent-banner': 4.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@porscheofficial/cookie-consent-banner@4.0.1:
+    resolution: {integrity: sha512-snpKAbUeTrehU293r4oxxgPwQmqqMe703ou3zaR65As5v1Echcp4CBW7s1M4G6GFXeX4C4m2ii7tJDJDXCs+nQ==}
+    dependencies:
+      '@stencil/core': 4.2.1
+    dev: false
+
   /@rollup/plugin-alias@5.1.0(rollup@4.9.6):
     resolution: {integrity: sha512-lpA3RZ9PdIG7qqhEfv79tBffNaoDuukFDrmhLqg9ifv99u/ehn+lOg30x2zmhf8AQqQUZaMk/B9fZraQ6/acDQ==}
     engines: {node: '>=14.0.0'}
@@ -4535,6 +4555,12 @@ packages:
       '@smithy/abort-controller': 2.1.1
       '@smithy/types': 2.9.1
       tslib: 2.6.2
+    dev: false
+
+  /@stencil/core@4.2.1:
+    resolution: {integrity: sha512-alYwqVwxfD0n6HKRVJqJoTzQNnf44n/sddvjNu3JMEn3sfY/Ag7rpmwUntYjtJmRut+or+9gPPgIJviCuKi4yQ==}
+    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
+    hasBin: true
     dev: false
 
   /@supabase/node-fetch@2.6.15:

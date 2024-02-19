@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
-import {Bebas_Neue} from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import {CookieConsent} from "@/components/CookieConsent";
 
 const font = localFont({
   src: [
@@ -34,6 +34,7 @@ export default function RootLayout(
   return (
     <html lang="en">
       <body className={font.className}>{children}</body>
+      <CookieConsent />
     </html>
   );
 }

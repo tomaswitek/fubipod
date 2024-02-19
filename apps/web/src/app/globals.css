@@ -6,6 +6,17 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 39, 39, 39;
   --background-end-rgb: 39, 39, 39;
+
+  /* CookieConsent */
+  /* https: //github.com/porscheofficial/cookie-consent-banner/tree/main/packages/cookie-consent-banner-react */
+  --cookie-consent-banner-border-radius-buttons: 0;
+  --cookie-consent-banner-colors-primary-content: #000;
+  --cookie-consent-banner-colors-secondary-border: #000;
+  --cookie-consent-banner-colors-secondary-content: #000;
+  --cookie-consent-banner-colors-text: #000;
+  --cookie-consent-banner-colors-primary: #B09676;
+  --cookie-consent-banner-colors-background-body: rgba(255, 255, 255, 0.85);
+      
 }
 
 /* @media (prefers-color-scheme: dark) {
