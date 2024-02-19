@@ -117,7 +117,7 @@ export function Form(props: FormProps) {
   };
 
   const onChange = (name: string, value: any) => {
-    setData((prev) => ({...prev, [name]: value}));
+    setData((prev: any) => ({...prev, [name]: value}));
   };
 
   return (
