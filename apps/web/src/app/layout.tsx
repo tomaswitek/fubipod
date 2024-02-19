@@ -2,6 +2,10 @@ import type {Metadata} from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import {CookieConsent} from "@/components/CookieConsent";
+import ReactGA from "react-ga4";
+
+// TODO: replace with your GA measurement id
+// ReactGA.initialize("your GA measurement id");
 
 const font = localFont({
   src: [
