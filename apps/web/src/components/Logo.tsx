@@ -10,7 +10,7 @@ interface Props {
 export function Logo(props: Props) {
   const {height = 55, width, color = "#e0e0e0"} = props;
   return (
-    <Link href="/" className="-m-1.5 p-1.5">
+    <Link href="/" as="/" className="-m-1.5 p-1.5">
       <span className="sr-only">FUBI</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
