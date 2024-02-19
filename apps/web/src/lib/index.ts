@@ -2,7 +2,7 @@ import {Metadata} from "next";
 import {client} from "api";
 import {ImageProps} from "next/image";
 
-export function imageSrc(src: ImageProps["src"]) {
+export function assetsUrl(src: ImageProps["src"]) {
   return `${process.env.NEXT_PUBLIC_API_URL}/assets/${src}`;
 }
 
@@ -23,7 +23,7 @@ export async function generateMetadataFromSlug(
     title: seo.title,
     description: seo.description,
     openGraph: {
-      images: seo.og_image ? [{url: imageSrc(seo.og_image)}] : [],
+      images: seo.og_image ? [{url: assetsUrl(seo.og_image)}] : [],
     },
   };
 }

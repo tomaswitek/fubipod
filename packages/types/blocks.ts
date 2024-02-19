@@ -33,7 +33,9 @@ export interface BlockTranslation extends Translation {
 export interface HeroBlock extends BlockTranslation {
   id: string;
   title: string;
-  image: string;
+  image?: string;
+  video?: string;
+  video_url?: string;
   translations: BlockTranslation[];
 }
 
