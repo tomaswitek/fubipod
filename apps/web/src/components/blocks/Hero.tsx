@@ -1,22 +1,20 @@
-import React from "react";
-import {Image, imageSrc} from "@/components/Image";
+import React, {Suspense} from "react";
+import {Image} from "@/components/Image";
 import {HeroBlock} from "types/blocks";
 import {client} from "api";
 import {Link} from "@/components/Link";
-import {clsx} from "clsx";
+import {assetsUrl} from "@/lib";
 
 interface HeroProps extends HeroBlock {}
 
 export async function Hero(props: HeroProps) {
-  const {headline, image} = props;
+  const {headline, image, title, video, video_url} = props;
   const navigation = await client.getNavigation("categories");
 
+  const videoSrc = video ? assetsUrl(video) : video_url;
+
   return (
-    <div
-      style={{
-        background: `url("${imageSrc(image)}") no-repeat center -180px`,
-      }}
-    >
+    <div className="relative">
       <div className="mx-auto max-w-7xl px-6 text-center lg:px-8 pb-10">
         <h2
           className="lg:text-5xl text-3xl text-white bg-bg m-10 inline-block px-10 py-5 bg-opacity-50"
@@ -53,6 +51,25 @@ export async function Hero(props: HeroProps) {
           ))}
         </ul>
       </div>
+      {image && (
+        <Image
+          fill
+          src={image}
+          alt={title}
+          className="w-full object-cover mb-10 absolute top-0 left-0 h-full -z-10"
+        />
+      )}
+      {videoSrc && (
+        <Suspense>
+          <video
+            className="w-full h-full absolute object-cover top-0 left-0 -z-10"
+            src={videoSrc}
+            autoPlay
+            muted
+            loop
+          ></video>
+        </Suspense>
+      )}
     </div>
   );
 }

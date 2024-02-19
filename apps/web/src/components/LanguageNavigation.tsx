@@ -14,6 +14,7 @@ export function LanguageNavigation(props: Props) {
   const pathname = usePathname();
   /// TODO: fix
   //const {locale = "cs-CZ"} = useParams();
+  return null;
   const locale = "cs-CZ";
 
   return (

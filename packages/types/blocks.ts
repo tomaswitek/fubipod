@@ -1,4 +1,5 @@
 import {Translation} from "./common";
+import {Form} from "./forms";
 import {Page} from "./pages";
 import {Testimonial} from "./testimonials";
 
@@ -13,6 +14,7 @@ export enum BlockCollection {
   Richtext = "block_richtext",
   Product = "block_product",
   Gallery = "block_gallery",
+  Form = "block_form",
 }
 
 export interface Block {
@@ -31,7 +33,9 @@ export interface BlockTranslation extends Translation {
 export interface HeroBlock extends BlockTranslation {
   id: string;
   title: string;
-  image: string;
+  image?: string;
+  video?: string;
+  video_url?: string;
   translations: BlockTranslation[];
 }
 
@@ -62,6 +66,9 @@ export interface ColumnsBlockRow extends BlockTranslation {
 }
 
 export interface TestimonialsBlock extends BlockTranslation {
+  image?: string;
+  video?: string;
+  video_url?: string;
   testimonials: Testimonial[];
   translations: BlockTranslation[];
 }
@@ -97,6 +104,7 @@ export interface PricingBlockRow extends PricingBlockRowTranslation {
   url: string;
   page: Page;
   translations: PricingBlockRowTranslation[];
+  image: string;
 }
 
 interface PricingBlockRowTranslation extends BlockTranslation {
@@ -136,9 +144,16 @@ export interface ProductBlockRow extends BlockTranslation {
   id: string;
   title: string;
   translations: BlockTranslation[];
-  image?: Page;
+  image?: string;
   page?: Page;
   column: number;
+}
+
+export interface FormBlock extends BlockTranslation {
+  id: string;
+  title: string;
+  translations: BlockTranslation[];
+  form: Form;
 }
 
 export type PageBlock =
@@ -149,4 +164,5 @@ export type PageBlock =
   | PricingBlock
   | RichtextBlock
   | GalleryBlock
-  | ProductBlock;
+  | ProductBlock
+  | FormBlock;

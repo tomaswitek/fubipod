@@ -4,6 +4,7 @@ import BlockTitle, {BlockWrapper} from "../Block";
 import {groupBy} from "rambda";
 import LinkButton from "../LinkButton";
 import {clsx} from "clsx";
+import {Image} from "@/components/Image";
 
 interface ProductRowProps extends ProductBlockRow {}
 
@@ -13,6 +14,16 @@ function ProductRow(props: ProductRowProps, index: number) {
   return (
     <div key={index} className="mb-10">
       <h4 className="text-primary mb-2 text-xl">{title}</h4>
+      {image && (
+        <div className="relative h-60 mb-10">
+          <Image
+            fill
+            src={image}
+            alt={title}
+            className="w-full h-64 object-cover mb-10"
+          />
+        </div>
+      )}
       {content && (
         <div
           className="text-gray-300 text-lg"

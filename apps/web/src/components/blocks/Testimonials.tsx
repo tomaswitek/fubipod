@@ -1,14 +1,15 @@
-import React from "react";
+import React, {Suspense} from "react";
 import Image from "@/components/Image";
 import {BlockContent} from "@/components/Block";
 import {ColumnTitle} from "@/components/ColumnTitle";
 import {client} from "api";
 import {TestimonialsBlock} from "types";
+import {assetsUrl} from "@/lib";
 
 interface TestimonialsProps extends TestimonialsBlock {}
 
 export async function Testimonials(props: TestimonialsProps) {
-  const {title} = props;
+  const {title, image, video, video_url} = props;
   const categoryNavigation = await client.getNavigation("categories");
 
   // TODO: make slider
@@ -16,17 +17,13 @@ export async function Testimonials(props: TestimonialsProps) {
 
   const testimonial = props.testimonials[randomIndex];
 
+  const videoSrc = video ? assetsUrl(video) : video_url;
+
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:pt-32">
-      <div
-        className="relative"
-        style={{
-          background:
-            'url("https://fubipod.com/img/modely/12_09_2023_7247.jpg") no-repeat bottom',
-        }}
-      >
+      <div className="relative">
         <div className="grid md:grid-cols-2 pt-28 pb-9">
-          <div>Play</div>
+          <div />
           <div className="flex justify-center">
             <div className="bg-bg text-gray-300 w-96 p-10 z-50 lg:relative">
               <ColumnTitle title={title!} />
@@ -49,6 +46,25 @@ export async function Testimonials(props: TestimonialsProps) {
             ))}
           </div>
         </div>
+        {image && (
+          <Image
+            fill
+            src={image}
+            alt={title}
+            className="w-full object-cover mb-10 absolute top-0 left-0 h-full -z-10"
+          />
+        )}
+        {videoSrc && (
+          <Suspense>
+            <video
+              className="w-full h-full absolute object-cover top-0 left-0 -z-10"
+              src={videoSrc}
+              autoPlay
+              muted
+              loop
+            ></video>
+          </Suspense>
+        )}
       </div>
     </div>
   );

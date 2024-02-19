@@ -31,8 +31,6 @@ function NavItem(props: NavigationItemProps, index: number) {
       href = imageSrc(item.file);
   }
 
-  console.log("item", item);
-
   return (
     <Component
       className={className}

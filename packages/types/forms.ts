@@ -5,25 +5,35 @@ export enum FormOnScuccess {
   message = "message",
 }
 
+export enum FormFieldType {
+  text = "text",
+  textarea = "textarea",
+  checkbox = "checkbox",
+  radio = "radio",
+  file = "file",
+  select = "select",
+  hidden = "hidden",
+  email = "email",
+  phone = "phone",
+}
+
+export interface FormField {
+  name: string;
+  label: string;
+  type: FormFieldType;
+  validation?: string;
+  width?: number;
+  required: boolean;
+}
+
 export interface Form {
   id: string;
   key: string;
+  title: string;
+  status: Status;
   on_success: FormOnScuccess;
   redirect_url: string;
-  schema: NewsletterFormSchema;
-  sort: number;
-  status: Status;
-  submit_label: string;
   success_message: string;
-  title: string;
-}
-
-export interface NewsletterFormSchema {
-  email: string;
-}
-
-export interface ContactFormSchema {
-  first_name: string;
-  last_name: string;
-  // TODO
+  submit_label: string;
+  schema: {[key: string]: any};
 }

@@ -28,6 +28,8 @@ export const BLOCK_FIELDS = [
   "item.gallery_items.*",
   // pricing
   "item.rows.page.*",
+  // form
+  "item.form.*",
 ];
 
 export function mapBlock(block: Block, locale: string = "cs-CZ") {
