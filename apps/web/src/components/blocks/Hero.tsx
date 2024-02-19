@@ -1,6 +1,5 @@
-import React from "react";
+import React, {Suspense} from "react";
 import {Image} from "@/components/Image";
-import {Suspense} from "react";
 import {HeroBlock} from "types/blocks";
 import {client} from "api";
 import {Link} from "@/components/Link";
